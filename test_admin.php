@@ -7,7 +7,7 @@ if(isset($_POST['end'])) // третья форма была введена
 echo"$_POST[adress]";
 echo"$_POST[region]";
 echo"$_POST[pon]";
-}
+} 
 elseif(isset($_POST['adress'])) // вторая форма (ввели первую)
 {
     ?>

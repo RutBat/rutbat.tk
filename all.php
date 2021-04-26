@@ -34,7 +34,7 @@ else
         $pages_sql = "SELECT COUNT(*) FROM `adress`";
     }
 }
-///////Поиск по адресу
+////////Поиск по адресу
 //$pages_sql = "SELECT COUNT(*) FROM `adress`";
 $result = mysqli_query($connect, $pages_sql);
 $total_rows = mysqli_fetch_array($result) [0];
