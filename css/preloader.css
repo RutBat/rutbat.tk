@@ -1,0 +1,65 @@
+.loader {
+
+  top: calc(50% - 32px);
+  left: calc(50% - 32px);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  perspective: 800px;
+}
+
+.inner {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;  
+}
+
+.inner.one {
+  left: 0%;
+  top: 0%;
+  animation: rotate-one 5s linear infinite;
+  background-image: url('img/log.png');
+    background-repeat: no-repeat;
+}
+
+
+@keyframes rotate-one {
+  0% {
+    transform: rotateX(2deg) rotateY(-2deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(2deg) rotateY(-2deg) rotateZ(360deg);
+  }
+}
+
+
+#p_prldr {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #343a40;
+  z-index: 30;
+}
+
+.contpre small {
+  font-size: 25px;
+}
+
+.contpre {
+  width: 250px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  margin-left: -125px;
+  margin-top: -75px;
+  color: #fff;
+  font-size: 40px;
+  letter-spacing: -2px;
+  text-align: center;
+  line-height: 35px;
+}
