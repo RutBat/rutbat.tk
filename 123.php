@@ -11,7 +11,6 @@ include "inc/head.php";
 							<input type="adress" name="login" class="form-control" required title="Введите адрес" placeholder="Введите адрес">
 							<?php
 							if ($usr['admin'] == '1') {
-							//////как же я заебался это писать/////////
 							echo '<small  class="text-danger form-text">Регион</small><select name="region" class="custom-select mr-sm-2">';
 									$reg = $connect->query("SELECT * FROM region ");
 									echo '<small  class="form-text text-muted">В каком регионе: <b>' .
