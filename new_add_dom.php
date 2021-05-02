@@ -1,5 +1,7 @@
 <?php
-include "inc/head.php"; 
+include "inc/head.php"; ?>
+
+<?php 
 if(isset($_GET['adress']) &&  isset($_GET['region'])){
 session_start();
 $_SESSION['adress'] = trim($_GET['adress']);
@@ -129,7 +131,7 @@ exit;
 }
 
 if(empty($_SESSION['adress']) && empty($_SESSION['region'])){
-
+echo'</div>';
 					echo'<form method="GET" action="#">';
 					echo'<li class="list-group-item  justify-content-between align-items-center">';
 ////////////////////////////адрес////////////////////////////////////////////////

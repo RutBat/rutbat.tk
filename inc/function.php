@@ -24,12 +24,12 @@ return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
 <?php
 function redirect ($url) {
 ?>
-<div class="d-flex justify-content-center" style = "padding: 25% 25%;">
-	<div class="spinner-border" role="status">
-		<span class="sr-only">Loading...</span>
-	</div>
+<div class="d-flex justify-content-center" style = "
+		padding: 25% 25%;
+    height: 70%;">
+<div class="loader">
 </div>
-<br>
+</div>
 <?php
 echo'<meta http-equiv="refresh" content="1;URL='."$url".'">';
 }

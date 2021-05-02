@@ -14,7 +14,7 @@ include ("inc/style.php");
 
 <body style = "background: #ffffff url(img/bg.png) repeat;">
   <div class="container-sm">
-  <link rel="stylesheet" href="/css/pravki.css?ver=1">
+  <link rel="stylesheet" href="/css/pravki.css?ver=<?=rand(1,2000)?>">
 <?php
 include ("inc/navbar.php");
 ?>

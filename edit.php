@@ -14,6 +14,7 @@ include "inc/head.php"; ?>
 				$pred = $_GET['pred'];
 				$phone = $_GET['phone'];
 				$krisha = $_GET['krisha'];
+				$oboryda = $_GET['oboryda'];
 				$lesnica = $_GET['lesnica'];
 				$pon = $_GET['pon'];
 				$podjezd = $_GET['podjezd'];
@@ -27,8 +28,8 @@ include "inc/head.php"; ?>
 				$user = $usr['name'];
 
 				$date = date("d.m.Y H:i:s");
-$text = 'отредактировал дом -';
-$log = "Пользователь $user $text $adress";
+$text2 = 'отредактировал дом -';
+$log = "Пользователь $user $text2 $adress";
 $zap = "INSERT INTO log (kogda, log)
 		VALUES (
 		'$date',
@@ -44,6 +45,7 @@ $zap = "INSERT INTO log (kogda, log)
 				vihod3 = '$vihod3',
 				vihod4 = '$vihod4',
 				vihod5 = '$vihod5',
+				oboryda = '$oboryda',
 				dopzamok = '$dopzamok',
 				kluch = '$kluch',
 				pred = '$pred',

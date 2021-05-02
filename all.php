@@ -17,6 +17,7 @@ $pageno = isset($_GET['pageno']) ? $_GET['pageno'] : 1;
 $size_page = 9;
 $offset = ($pageno - 1) * $size_page;
 $adrs = $_GET['adress'];
+$tech = $_GET['tech'];
 if (!empty($_GET['adress']))
 {
     $sql = "SELECT * FROM `adress` WHERE adress LIKE '%$adrs%' ORDER BY `adress` ASC LIMIT $offset, $size_page";
@@ -34,6 +35,18 @@ else
         $pages_sql = "SELECT COUNT(*) FROM `adress`";
     }
 }
+
+if($tech == 'pon'){
+    $sql = "SELECT * FROM `adress` WHERE pon LIKE 'Gpon' ORDER BY `adress` ASC LIMIT $offset, $size_page";
+    $pages_sql = "SELECT COUNT(*) FROM `adress` WHERE pon LIKE 'Gpon'";
+    $split = "&adress=$adrs";
+}
+if($tech == 'ethernet'){
+    $sql = "SELECT * FROM `adress` WHERE pon LIKE 'Ethernet' ORDER BY `adress` ASC LIMIT $offset, $size_page";
+    $pages_sql = "SELECT COUNT(*) FROM `adress` WHERE pon LIKE 'Ethernet'";
+    $split = "&adress=$adrs";
+}
+
 ////////Поиск по адресу
 //$pages_sql = "SELECT COUNT(*) FROM `adress`";
 $result = mysqli_query($connect, $pages_sql);
@@ -61,48 +74,33 @@ while ($row = mysqli_fetch_array($res_data))
         <label for="exampleInputEmail1"><?=$text?> <?=$row['adress']?></label>
     </a>
    <? if ($usr['region'] == $row['region'] || $usr['admin'] == '1')
-    {
-        ?>
-<a href="JavaScript:startdel(<?=$row['id']?>)" class="close"><span aria-hidden="true">&times;</span></a>
-   <? }
+    {?>
+    <a href="JavaScript:startdel(<?=$row['id']?>)" class="close">
+        <span aria-hidden="true">&times;</span>
+    </a>
+<?  }
     echo '</li>';
      } 
 mysqli_close($connect); 
     ?>
         <ul class="pagination"> <a href="?pageno=1" type="button" class="col-md-3 col-sm-3  mx-auto btn btn-warning">1</a>
-            <a href="
-
-            <?php 
-            if ($pageno <= 1)
-{
-    echo '#';
-}
-else
-{
-    echo " ?pageno=" . ($pageno - 1) . $split;
-}
-
-
-
-     ?>" type="button" class="col-md-3 col-sm-3  mx-auto btn btn-warning <?php if ($pageno <= 1)
-{
-    echo 'disabled';
-} ?>"> <i class="fa fa-angle-double-left" aria-hidden="true"></i></a> <a href="<?php if ($pageno >= $total_pages)
-{
-    echo '#';
-}
-else
-{
-    echo " ?pageno=" . ($pageno + 1) . $split;
-} ?>" type="button" class="col-md-3 col-sm-3  mx-auto btn btn-warning
-<?php
-if ($pageno >= $total_pages)
-{
-    echo 'disabled';
-} ?>"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-            <a href="?pageno=<?=$total_pages ?>" type="button" class="col-md-3 col-sm-3  mx-auto btn btn-warning">
-                <?=$total_pages
-?>
+            <a 
+            href="<?php if ($pageno <= 1){echo '#';}else{echo " ?pageno=" . ($pageno - 1) . $split;}?>" 
+            type="button" 
+            class="col-md-3 col-sm-3  mx-auto btn btn-warning <?php if ($pageno <= 1){echo 'disabled';} ?>"> 
+                <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+            </a>
+            <a 
+            href="<?php if ($pageno >= $total_pages){echo '#';}else{echo " ?pageno=" . ($pageno + 1) . $split;} ?>" 
+            type="button" 
+            class="col-md-3 col-sm-3  mx-auto btn btn-warning <?php if ($pageno >= $total_pages){echo 'disabled';} ?>">
+                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            </a>
+            <a 
+            href="?pageno=<?=$total_pages ?>" 
+            type="button" 
+            class="col-md-3 col-sm-3  mx-auto btn btn-warning">
+                <?=$total_pages?>
             </a>
         </ul>
         </div>

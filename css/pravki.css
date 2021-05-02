@@ -1,3 +1,90 @@
+@keyframes loader {
+  0% {transform:rotate(-0deg)}
+  100%{transform:rotate(-360deg)}}
+
+.loader {
+
+  position: relative;
+  animation: loader 2s infinite ease-in-out;
+    width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  	background-image: url(/img/log.png);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btnani{
+  flex: 1 auto;
+  padding:6px 15px;
+  text-align:center;
+  background:#fdda24;
+  transition: all 0.5s ease-out;
+  cursor:crosshair;
+}
+
+
+
+/* ---- block btns ---- */
+.block .btnani{ /* general */
+  position:relative;
+  overflow:hidden;
+  z-index: 1;
+}
+.block .btnani:before,
+.block .btnani:after{
+  content:'';
+  display:block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  z-index: -1;
+  transition:.4s;
+}
+.block .btnani:hover{
+  color:#000;
+}
+
+
+
+.block .btn-3:before,
+.block .btn-3:after{
+  height: 100%;
+  transform:skewX(45deg);
+  background:#fdda24;
+  top: 0;
+  left: -5%;
+}
+.block .btn-3:after{
+  left: auto;
+  right: -5%;
+}
+.block .btn-3:hover{
+  background:#111111;
+  transition:background .4s .15s;
+}
+.block .btn-3:hover:before,
+.block .btn-3:hover:after{
+  width: 110%;
+}
+
+
+
+
+
 .bg-dark{
 	
 	background-color: #201f26;
