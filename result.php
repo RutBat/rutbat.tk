@@ -14,6 +14,7 @@ redirect("all.php?tech=ethernet");
 include "inc/foot.php";
 exit();
 }
+////////////Если режим редактирования то меняем на противоположный
 if (isset($_GET['viewer']))
 {
 $status = $usr['viewer'] == 0 ? '1' : '0';
@@ -24,6 +25,7 @@ $connect->query($sql);
 redir("$_SERVER[HTTP_REFERER]", "0");
 exit;
 }
+///////////////////////////////////////////////////////
 $res = $connect->query("SELECT * FROM adress WHERE adress LIKE '%$adress%'");
 if ($res->num_rows == 0)
 {
@@ -59,10 +61,7 @@ while ($row = $results->fetch_object())
 {
 $name = $_COOKIE['user'];
 $user = $connect->query("SELECT * FROM `user` WHERE `name` = '" . $name . "'");
-if ($user->num_rows != 0)
-{
-$usr = $user->fetch_array(MYSQLI_ASSOC);
-}
+$usr =  $user->num_rows != 0 ? $user->fetch_array(MYSQLI_ASSOC) : '';
 $status = $usr['viewer'] == 0 ? 'редактирования' : 'просмотра';
 if ($row->region != $usr['region'] and $usr['admin'] == "0")
 {
@@ -257,56 +256,33 @@ text-align: left;
 include 'inc/foot.php';
 exit();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 print '<input name = "id" type="hidden"  value = "' . $row->id . '">';
 print '<li class="list-group-item active">';
 out_in("adress", "$adress", "");
 echo'</li>';
-
-
-
-
-
- if ($row->oboryda == "Чердак") {
-    echo'<li class="list-group-item  justify-content-between align-items-center">';
+if ($row->oboryda == "Чердак") {
+echo'<li class="list-group-item  justify-content-between align-items-center">';
 out_sel("podjezd", "$adress", "Сколько подъездов?");
 echo '<small  class="form-text text-muted">В каком подъезде выход?</small>
 <select multiple name="vihod[]" class="custom-select mr-sm-2">';
-    $vih = $connect->query("SELECT * FROM vihod");
-    while ($vihod = $vih->fetch_object())
-    {
-    $sel_vih = $row->vihod == $vihod->name ? 'selected' : '';
-    $sel_vih2 = $row->vihod2 == $vihod->name ? 'selected' : '';
-    $sel_vih3 = $row->vihod3 == $vihod->name ? 'selected' : '';
-    $sel_vih4 = $row->vihod4 == $vihod->name ? 'selected' : '';
-    $sel_vih5 = $row->vihod5 == $vihod->name ? 'selected' : '';
-    echo "<option $sel_vih $sel_vih2 $sel_vih3 $sel_vih4 $sel_vih5 value='$vihod->name'>$vihod->name</option>";
-    }
+$vih = $connect->query("SELECT * FROM vihod");
+while ($vihod = $vih->fetch_object())
+{
+$sel_vih = $row->vihod == $vihod->name ? 'selected' : '';
+$sel_vih2 = $row->vihod2 == $vihod->name ? 'selected' : '';
+$sel_vih3 = $row->vihod3 == $vihod->name ? 'selected' : '';
+$sel_vih4 = $row->vihod4 == $vihod->name ? 'selected' : '';
+$sel_vih5 = $row->vihod5 == $vihod->name ? 'selected' : '';
+echo "<option $sel_vih $sel_vih2 $sel_vih3 $sel_vih4 $sel_vih5 value='$vihod->name'>$vihod->name</option>";
+}
 echo '</select>';
 out_sel("krisha", "$adress", "Какая крыша?");
 out_in("kluch", "$adress", "У кого ключ от чердака");
 out_sel("lesnica", "$adress", "Есть ли лестница?");
 out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
-    }
-
-
-
-
-
-     if ($row->oboryda == "Подвал") {
-    echo'<li class="list-group-item  justify-content-between align-items-center">';
+}
+if ($row->oboryda == "Подвал") {
+echo'<li class="list-group-item  justify-content-between align-items-center">';
 out_sel("podjezd", "$adress", "Сколько подъездов?");
 echo '<small  class="form-text text-muted">В каком подъезде подвал?</small>
 <select multiple name="vihod[]" class="custom-select mr-sm-2">';
@@ -323,73 +299,64 @@ echo '<small  class="form-text text-muted">В каком подъезде под
 echo '</select>';
 out_in("kluch", "$adress", "У кого ключ от чердака");
 out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
+}
+if ($row->oboryda == "Подъезд") {
+echo'<li class="list-group-item  justify-content-between align-items-center">';
+    out_sel("podjezd", "$adress", "Сколько подъездов?");
+    echo '<small  class="form-text text-muted">В каком подъезде оборудование?</small>
+    <select multiple name="vihod[]" class="custom-select mr-sm-2">';
+        $vih = $connect->query("SELECT * FROM vihod ");
+        while ($vihod = $vih->fetch_object())
+        {
+        $sel_vih = $row->vihod == $vihod->name ? 'selected' : '';
+        $sel_vih2 = $row->vihod2 == $vihod->name ? 'selected' : '';
+        $sel_vih3 = $row->vihod3 == $vihod->name ? 'selected' : '';
+        $sel_vih4 = $row->vihod4 == $vihod->name ? 'selected' : '';
+        $sel_vih5 = $row->vihod5 == $vihod->name ? 'selected' : '';
+        echo "<option $sel_vih $sel_vih2 $sel_vih3 $sel_vih4 $sel_vih5 value='$vihod->name'>$vihod->name</option>";
+        }
+    echo '</select>';
+    out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
     }
-
-     if ($row->oboryda == "Подъезд") {
+    if ($row->oboryda == "Фасад") {
     echo'<li class="list-group-item  justify-content-between align-items-center">';
-out_sel("podjezd", "$adress", "Сколько подъездов?");
-echo '<small  class="form-text text-muted">В каком подъезде оборудование?</small>
-<select multiple name="vihod[]" class="custom-select mr-sm-2">';
-    $vih = $connect->query("SELECT * FROM vihod ");
-    while ($vihod = $vih->fetch_object())
-    {
-    $sel_vih = $row->vihod == $vihod->name ? 'selected' : '';
-    $sel_vih2 = $row->vihod2 == $vihod->name ? 'selected' : '';
-    $sel_vih3 = $row->vihod3 == $vihod->name ? 'selected' : '';
-    $sel_vih4 = $row->vihod4 == $vihod->name ? 'selected' : '';
-    $sel_vih5 = $row->vihod5 == $vihod->name ? 'selected' : '';
-    echo "<option $sel_vih $sel_vih2 $sel_vih3 $sel_vih4 $sel_vih5 value='$vihod->name'>$vihod->name</option>";
-    }
-echo '</select>';
-out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
-    }
-
-
-
-         if ($row->oboryda == "Фасад") {
-    echo'<li class="list-group-item  justify-content-between align-items-center">';
-out_sel("podjezd", "$adress", "Сколько подъездов?");
-    }
-             if ($row->oboryda == "Не указанно") {
-                    echo'<li class="list-group-item  justify-content-between align-items-center">';
-echo '<small  class="form-text text-muted">В каком подъезде выход?</small>
-<select multiple name="vihod[]" class="custom-select mr-sm-2">';
-    $vih = $connect->query("SELECT * FROM vihod ");
-    while ($vihod = $vih->fetch_object())
-    {
-    $sel_vih = $row->vihod == $vihod->name ? 'selected' : '';
-    $sel_vih2 = $row->vihod2 == $vihod->name ? 'selected' : '';
-    $sel_vih3 = $row->vihod3 == $vihod->name ? 'selected' : '';
-    $sel_vih4 = $row->vihod4 == $vihod->name ? 'selected' : '';
-    $sel_vih5 = $row->vihod5 == $vihod->name ? 'selected' : '';
-    echo "<option $sel_vih $sel_vih2 $sel_vih3 $sel_vih4 $sel_vih5 value='$vihod->name'>$vihod->name</option>";
-    }
-echo '</select>';
-//////как же я заебался это писать/////////
-out_sel("podjezd", "$adress", "Сколько подъездов?");
-out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
-out_in("kluch", "$adress", "У кого ключ от чердака");
-    }
-
-
-
-
-
-if ($usr['admin'] == '1')
-{
-out_sel("region", "$adress", "<font color = 'red'>Регион</font>");
-}
-else
-{
-echo "<input type='hidden' name='region' value='$usr[region]'>";
-}
-out_sel("pon", "$adress", "Технология подключения");
-out_sel("oboryda", "$adress", "Где оборудование?");
-out_in("pred", "$adress", "Кв. и Ф.И.О председателя");
-out_in("phone", "$adress", "Номер телефона председателя");
-out_in("text", "$adress", "Для заметок");
-}
-echo '<button type="submit" class="btn btn-primary btn-lg btn-block">Редактировать дом</button></li>
-</form>
+        out_sel("podjezd", "$adress", "Сколько подъездов?");
+        }
+        if ($row->oboryda == "Не указанно") {
+        echo'<li class="list-group-item  justify-content-between align-items-center">';
+            echo '<small  class="form-text text-muted">В каком подъезде выход?</small>
+            <select multiple name="vihod[]" class="custom-select mr-sm-2">';
+                $vih = $connect->query("SELECT * FROM vihod ");
+                while ($vihod = $vih->fetch_object())
+                {
+                $sel_vih = $row->vihod == $vihod->name ? 'selected' : '';
+                $sel_vih2 = $row->vihod2 == $vihod->name ? 'selected' : '';
+                $sel_vih3 = $row->vihod3 == $vihod->name ? 'selected' : '';
+                $sel_vih4 = $row->vihod4 == $vihod->name ? 'selected' : '';
+                $sel_vih5 = $row->vihod5 == $vihod->name ? 'selected' : '';
+                echo "<option $sel_vih $sel_vih2 $sel_vih3 $sel_vih4 $sel_vih5 value='$vihod->name'>$vihod->name</option>";
+                }
+            echo '</select>';
+            //////как же я заебался это писать/////////
+            out_sel("podjezd", "$adress", "Сколько подъездов?");
+            out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
+            out_in("kluch", "$adress", "У кого ключ от чердака");
+            }
+            if ($usr['admin'] == '1')
+            {
+            out_sel("region", "$adress", "<font color = 'red'>Регион</font>");
+            }
+            else
+            {
+            echo "<input type='hidden' name='region' value='$usr[region]'>";
+            }
+            out_sel("pon", "$adress", "Технология подключения");
+            out_sel("oboryda", "$adress", "Где оборудование?");
+            out_in("pred", "$adress", "Кв. и Ф.И.О председателя");
+            out_in("phone", "$adress", "Номер телефона председателя");
+            out_in("text", "$adress", "Для заметок");
+            }
+        echo '<button type="submit" class="btn btn-primary btn-lg btn-block">Редактировать дом</button></li>
+    </form>
 </ul>';
 include 'inc/foot.php';
