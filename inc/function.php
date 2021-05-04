@@ -31,7 +31,7 @@ function redirect ($url) {
 </div>
 </div>
 <?php
-echo'<meta http-equiv="refresh" content="1;URL='."$url".'">';
+echo'<meta http-equiv="refresh" content="0;URL='."$url".'">';
 }
 function red_index ($url) {
 echo'<meta http-equiv="refresh" content="0;URL='."$url".'">';
@@ -80,7 +80,7 @@ $pass = $_COOKIE['pass'];
 $user = $connect->query("SELECT * FROM `user` WHERE `name` = '". $name ."' and `pass` = '". $pass ."'");
 if ($user->num_rows == 0) {
 			$gde = $_SERVER["REQUEST_URI"];
-			if($gde != "/auth.php" && $gde != "/auth.php?reg" && $gde != "/reg.php" && $gde != "auth.php?err" ){
+			if($gde != "/auth.php" && $gde != "/auth.php?reg" && $gde != "/reg.php" && $gde != "auth.php?err" && $gde != "reg.php?success" ){
 				red_index('/auth.php');
 exit();
 			}

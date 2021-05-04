@@ -6,7 +6,7 @@ $results = $connect->query("SELECT * FROM adress WHERE adress LIKE '$adress' LIM
 $this_house =  $results->num_rows == 1 ? $results->fetch_array(MYSQLI_ASSOC) : '';
 /////////Если данных нет то осталяем без изменений, если есть добавляем их в переменную
 $dopzamok =  empty($_GET['dopzamok']) ? $this_house['dopzamok'] : $_GET['dopzamok'];
-$vihod1 =  empty($_GET['vihod']['0']) ? $this_house['vihod1'] : $_GET['vihod']['0'];
+$vihod1 =  empty($_GET['vihod']['0']) ? $this_house['vihod'] : $_GET['vihod']['0'];
 $vihod2 =  empty($_GET['vihod']['1']) ? $this_house['vihod2'] : $_GET['vihod']['1'];
 $vihod3 =  empty($_GET['vihod']['2']) ? $this_house['vihod3'] : $_GET['vihod']['2'];
 $vihod4 =  empty($_GET['vihod']['3']) ? $this_house['vihod4'] : $_GET['vihod']['3'];

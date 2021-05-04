@@ -1,29 +1,31 @@
 <?php
 session_start();
+header('Content-Type: text/html; charset=UTF-8'); 
 if (isset($_GET['success'])) {
-    $user = $_SESSION['current_user'];
-    $pass256 = $_SESSION['pass_256'];
+    $user = $_SESSION['user'];
+    $pass = $_SESSION['pass']; // Хэш по алгоритму sha256
     setcookie('user', $user, time() + 60 * 60 * 24 * 365);
-    setcookie('pass', $pass256, time() + 60 * 60 * 24 * 365);
+    setcookie('pass', $pass, time() + 60 * 60 * 24 * 365);
     header('Location: /');
     exit();
 }
-include "inc/function.php";
-$login  = trim(htmlspecialchars(e($_GET['login'])));
-$pass   = trim(htmlspecialchars(e($_GET['pass'])));
+include "inc/db.php";
+$login  = trim(htmlspecialchars($_GET['login']));
+$pass   = trim(htmlspecialchars($_GET['pass']));
 
 $pass_256 = hash('sha256', $pass); // Хэш по алгоритму sha256
 $region = $_GET['region'];
 if (empty($login)) {
     echo '<script>alert("Ошибка! Проверьте логин. Не используйте пробелы и спец символы.");</script>';
-    redir('/auth.php?reg', '3');
-    redir('/auth.php?reg', '3');
+    echo '<meta http-equiv="refresh" content="0;URL=/auth.php?reg">';
+    //redir('/auth.php?reg', '3');
     exit();
 } elseif (empty($pass)) {
     echo '<script>
 alert("Ошибка! Проверьте пароль. Не используйте пробелы и спец символы.");
 </script>';
-    redir('/auth.php?reg', '3');
+echo '<meta http-equiv="refresh" content="0;URL=/auth.php?reg">';
+    //redir('/auth.php?reg', '3');
     exit();
 }
 $user = $connect->query("SELECT * FROM user WHERE name = '$login'");
@@ -32,7 +34,8 @@ if ($user->num_rows >= 1) {
     echo '<script>
     alert("Ошибка! Логин есть в базе. Придумайте новый логин");
 </script>';
-    redir('/auth.php?reg', '3');
+echo '<meta http-equiv="refresh" content="0;URL=/auth.php?reg">';
+    //redir('/auth.php?reg', '3');
     exit();
 }
 
@@ -57,9 +60,11 @@ VALUES (
 '$region'
 )";
 if ($connect->query($sql) === true) {
-    $_SESSION['current_user'] = $login;
-    $_SESSION['pass_256'] = $pass_256;
-    red_index('/reg.php?success');
+    session_start();
+    $_SESSION['user'] = $login;
+    $_SESSION['pass'] = $pass_256;
+    echo '<meta http-equiv="refresh" content="0;URL=/reg.php?success">';
+    //red_index('/reg.php?success');
     exit();
 }
 

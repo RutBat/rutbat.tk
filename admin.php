@@ -106,7 +106,7 @@ $zap = "INSERT INTO log (kogda, log)
 			echo "Ошибка: " . $sql . "<br>" . $connect->error;
 		}
 
-
+////////////////////////////Обнуление сессий при добавлении нового дома//////////////////////////////////////////////////////////////////
 $_SESSION['adress'] = '';
 $_SESSION['vihod'] = '';
 $_SESSION['dopzamok'] = '';
@@ -121,10 +121,6 @@ $_SESSION['pon'] = '';
 $_SESSION['oboryda'] = '';
 $_SESSION['step'] = '';
 session_destroy();
-
-
-
-
 exit;
 }
 
