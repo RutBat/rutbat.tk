@@ -5,7 +5,6 @@ AddType text/css .css
 AddType text/xml .xml
 AddType application/octet-stream .doc .mov .avi .pdf .xls 
 # ForceType application/x-httpd-php
-
 <ifModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/css text/javascript application/javascript application/x-javascript
 </ifModule>

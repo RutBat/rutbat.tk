@@ -1,7 +1,11 @@
 <?php
 session_start();
 include "inc/head.php";
+
 $adress = $_GET['adress'];
+?>
+<head><title>Информация о доме <?=$adress?></title></head>
+<?
 if( $adress == "pon" || $adress == "Pon"){
 echo"</div>";
 redirect("all.php?tech=pon");

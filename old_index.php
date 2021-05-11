@@ -1,10 +1,7 @@
 <?php
-include "inc/head.php";
-
+include "inc/head.php"; 
 ?>
-<head><title>Главная</title>
-<script type="text/javascript" src="searcher.js"></script>
-</head>
+<head><title>Главная</title></head>
 <div class="container">
 	
 
@@ -25,14 +22,7 @@ include "inc/head.php";
 			<div class="form-row" style="widows: 80%;">
 
 				<div class="col-9">
-					<input type="text" autocomplete="off" id="search" name="adress" class="form-control" required title="Введите от 4 символов" placeholder="Введите адрес">
-				
-<ul class="list-group">
-<div id="display"></div>
-</ul>
-				
-
-
+					<input autocomplete="on" list="provlist" type="text" name="adress" class="form-control" required title="Введите от 4 символов" placeholder="Введите адрес">
 				</div>
 				<div class="col-3 block">
     <a onclick="document.getElementById('ard').submit()" class="block btn btnani btn-3">Поиск</a>

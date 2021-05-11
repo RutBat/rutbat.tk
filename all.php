@@ -1,6 +1,8 @@
 <?php
 include "inc/head.php";
-
+?>
+<head><title>Список домов</title></head>
+<?
 if (!isset($_GET['all']))
 {
     echo '<a href = "/all.php?all" class="btn bg-warning btn-block">Посмотреть все адреса</a>';
@@ -40,11 +42,13 @@ if($tech == 'pon'){
     $sql = "SELECT * FROM `adress` WHERE pon LIKE 'Gpon' ORDER BY `adress` ASC LIMIT $offset, $size_page";
     $pages_sql = "SELECT COUNT(*) FROM `adress` WHERE pon LIKE 'Gpon'";
     $split = "&adress=$adrs";
+    $types = "&tech=$tech";
 }
 if($tech == 'ethernet'){
     $sql = "SELECT * FROM `adress` WHERE pon LIKE 'Ethernet' ORDER BY `adress` ASC LIMIT $offset, $size_page";
     $pages_sql = "SELECT COUNT(*) FROM `adress` WHERE pon LIKE 'Ethernet'";
     $split = "&adress=$adrs";
+    $types = "&tech=$tech";
 }
 
 ////////Поиск по адресу
@@ -85,13 +89,13 @@ mysqli_close($connect);
     ?>
         <ul class="pagination"> <a href="?pageno=1" type="button" class="col-md-3 col-sm-3  mx-auto btn btn-warning">1</a>
             <a 
-            href="<?php if ($pageno <= 1){echo '#';}else{echo " ?pageno=" . ($pageno - 1) . $split;}?>" 
+            href="<?php if ($pageno <= 1){echo '#';}else{echo " ?pageno=" . ($pageno - 1) . $split . $types;}?>" 
             type="button" 
             class="col-md-3 col-sm-3  mx-auto btn btn-warning <?php if ($pageno <= 1){echo 'disabled';} ?>"> 
                 <i class="fa fa-angle-double-left" aria-hidden="true"></i>
             </a>
             <a 
-            href="<?php if ($pageno >= $total_pages){echo '#';}else{echo " ?pageno=" . ($pageno + 1) . $split;} ?>" 
+            href="<?php if ($pageno >= $total_pages){echo '#';}else{echo " ?pageno=" . ($pageno + 1) . $split . $types;} ?>" 
             type="button" 
             class="col-md-3 col-sm-3  mx-auto btn btn-warning <?php if ($pageno >= $total_pages){echo 'disabled';} ?>">
                 <i class="fa fa-angle-double-right" aria-hidden="true"></i>
@@ -104,7 +108,7 @@ mysqli_close($connect);
             </a>
         </ul>
         </div>
-        </div>
+      
         <?php
 include 'inc/foot.php';
 ?>

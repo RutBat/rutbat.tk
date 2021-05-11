@@ -1,5 +1,7 @@
 <?php
 include "inc/head.php"; ?>
+<head><title>Добавить шаблон</title></head>
+
 				<form method="GET" action="/adddom.php">
 					<li  class="list-group-item  justify-content-between align-items-center">
 						<div class="input-group mb-3">
@@ -45,5 +47,5 @@ include "inc/head.php"; ?>
 						<button type="submit" class="btn bg-warning btn-lg btn-block">Добавить дом</button>
 						</div>
 					</li>
-				</form></div>
+				</form>
 			<?php include 'inc/foot.php';

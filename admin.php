@@ -1,5 +1,8 @@
 <?php
 include "inc/head.php"; 
+?>
+<head><title>Добавить дом</title></head>
+<?
 if(isset($_GET['adress']) &&  isset($_GET['region'])){
 session_start();
 $_SESSION['adress'] = trim($_GET['adress']);

@@ -1,7 +1,7 @@
 <?php
 include 'inc/head.php';
 if (isset($_GET['reg'])) { ?>
-
+<head><title>Регистрация</title></head>
 <center>Придумайте логин и пароль.<br>Пример: <i><b><font color="red">UserName</font></b></i>	</center>
 <center>Так же внимательно укажите свой регион</center>
 <form method="GET" action="/reg.php">
@@ -41,7 +41,7 @@ exit();
 }
 //////АВТОРИЗАЦИЯ
 ?>
-
+<head><title>Авторизация</title></head>
 <li class="list-group-item">
 	<form method="POST" action="/auth_obr.php">
 		<div class="form-group">

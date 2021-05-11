@@ -1,5 +1,6 @@
 <?php
 include "inc/head.php"; ?>
+<head><title>Страница пользователя</title></head>
 <ul class="list-group">
 	<li class="list-group-item">
 		<div id="ava">
@@ -38,6 +39,14 @@ include "inc/head.php"; ?>
 		});
 		</script>
 		<?
+				if (isset($_POST['submit'])) {
+		$sql = "TRUNCATE log";
+		if ($connect->query($sql) === false)
+		{
+		echo "Ошибка: " . $sql . "<br>" . $connect->error;
+		}
+		
+		redir("user","0");}
 		if($usr['admin'] == 1){
 		?>
 		<div class="form-group">
@@ -53,21 +62,15 @@ include "inc/head.php"; ?>
 			?>
 			</textarea>
 		</div>
-		<?}
 		
-		if (isset($_POST['submit'])) {
-		$sql = "TRUNCATE log";
-		if ($connect->query($sql) === false)
-		{
-		echo "Ошибка: " . $sql . "<br>" . $connect->error;
-		}
-		
-		redir("user","0");}
-		?>
 		
 		<form action="" method="POST" target="_self">
 			<input class="btn btn-outline-success btn-sm" type="submit" name="submit" value="Очистить логи" />
 		</form>
+		<?}
+		
+
+		?>
 		<br>
 		<small  style = "margin-top: 1rem;" class="form-text text-muted">Ваш логин:
 		<b>
@@ -92,6 +95,6 @@ include "inc/head.php"; ?>
 	</li>
 </ul>
 </div>
-</div>
+
 <?php include 'inc/foot.php';
 ?>

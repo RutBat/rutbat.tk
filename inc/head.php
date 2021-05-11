@@ -3,7 +3,9 @@ session_start();
 include ("inc/function.php");
 echo '
 <!doctype html>
-<html lang="ru">';
+<html lang="ru">
+';
+echo"<link rel='manifest' href='manifest.json'>";
 $gde = $_SERVER["REQUEST_URI"];
 if ($gde == "/")
 {

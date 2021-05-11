@@ -1,5 +1,8 @@
 <?php
 include "inc/head.php"; ?>
+
+<head><title>Инструкция</title></head>
+
 				<ul class="list-group">
 					<!-- 					<li class="list-group-item list-group-item-warning">О <b>багах</b> и <b>пожеланиях</b> говорите, не молчите, сервис сделан для нашего же удобства. Нам же хорошо когда всё работает хорошо и удобно</li>
 					-->
