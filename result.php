@@ -81,11 +81,16 @@ if ($row->region != $usr['region'] and $usr['admin'] == '1')
 {
 $usr['region'] = $row->region;
 }
+
 //просмотр доступен тем у кого регион не совпадает или же в режиме просмотра
 if ($row->region != $usr['region'] or $usr['viewer'] == '1')
 {
 ?>
+
+
+
 <li class="list-group-item">
+
 <table class="table" style = "
 font-size: 1rem;
 font-weight: 400;
@@ -98,6 +103,7 @@ text-align: left;
 	<td>Адрес:</td>
 	<td><?=$row->adress?></td>
 </tr>
+
 <?
 if ($row->oboryda == "Чердак") {
 ?>
@@ -263,8 +269,22 @@ print '<input name = "id" type="hidden"  value = "' . $row->id . '">';
 print '<li class="list-group-item active">';
 out_in("adress", "$adress", "");
 echo'</li>';
-if ($row->oboryda == "Чердак") {
 echo'<li class="list-group-item  justify-content-between align-items-center">';
+
+if($row->complete == 1){$complete = 'checked';}
+?>
+<center>
+	<div class="form-check">
+  <input name = 'check' class="form-check-input checkbox" type="checkbox" value="1" <?=$complete?> id="defaultCheck1">
+  <label class="form-check-label" for="defaultCheck1">
+    Дом полностью готов
+  </label>
+</div>
+</center>
+
+<?
+if ($row->oboryda == "Чердак") {
+
 out_sel("podjezd", "$adress", "Сколько подъездов?");
 echo '<small  class="form-text text-muted">В каком подъезде выход?</small>
 <select multiple name="vihod[]" class="custom-select mr-sm-2">';
@@ -285,7 +305,6 @@ out_sel("lesnica", "$adress", "Есть ли лестница?");
 out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
 }
 if ($row->oboryda == "Подвал") {
-echo'<li class="list-group-item  justify-content-between align-items-center">';
 out_sel("podjezd", "$adress", "Сколько подъездов?");
 echo '<small  class="form-text text-muted">В каком подъезде подвал?</small>
 <select multiple name="vihod[]" class="custom-select mr-sm-2">';
@@ -304,7 +323,6 @@ out_in("kluch", "$adress", "У кого ключ от чердака");
 out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
 }
 if ($row->oboryda == "Подъезд") {
-echo'<li class="list-group-item  justify-content-between align-items-center">';
 out_sel("podjezd", "$adress", "Сколько подъездов?");
 echo '<small  class="form-text text-muted">В каком подъезде оборудование?</small>
 <select multiple name="vihod[]" class="custom-select mr-sm-2">';
@@ -322,11 +340,9 @@ echo '</select>';
 out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
 }
 if ($row->oboryda == "Фасад") {
-echo'<li class="list-group-item  justify-content-between align-items-center">';
 	out_sel("podjezd", "$adress", "Сколько подъездов?");
 	}
 	if ($row->oboryda == "Не указанно") {
-	echo'<li class="list-group-item  justify-content-between align-items-center">';
 		echo '<small  class="form-text text-muted">В каком подъезде выход?</small>
 		<select multiple name="vihod[]" class="custom-select mr-sm-2">';
 			$vih = $connect->query("SELECT * FROM vihod ");

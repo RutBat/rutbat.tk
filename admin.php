@@ -149,7 +149,7 @@ echo'<li class="list-group-item  justify-content-between align-items-center">';
 echo'</li>';
 echo'</form>';
 echo'</div>';
-echo'</div>';
+
 include 'inc/foot.php';
 exit();
 }
@@ -180,7 +180,7 @@ echo'<button type="submit" class="btn bg-warning btn-lg btn-block">Далее</b
 echo'</li>';
 echo'</form>';
 echo'</div>';
-echo'</div>';
+
 include 'inc/foot.php';
 exit();
 }
@@ -201,7 +201,7 @@ echo'<button type="submit" class="btn bg-warning btn-lg btn-block">Далее</b
 echo'</li>';
 echo'</form>';
 echo'</div>';
-echo'</div>';
+
 include 'inc/foot.php';
 exit();
 }
@@ -244,7 +244,7 @@ echo'<button type="submit" class="btn bg-warning btn-lg btn-block">Далее</b
 echo'</li>';
 echo'</form>';
 echo'</div>';
-echo'</div>';
+
 include 'inc/foot.php';
 exit();
 }
@@ -305,7 +305,7 @@ echo'<button type="submit" class="btn bg-warning btn-lg btn-block">Далее</b
 echo'</li>';
 echo'</form>';
 echo'</div>';
-echo'</div>';
+
 include 'inc/foot.php';
 exit();
 }
@@ -346,7 +346,7 @@ echo'<button type="submit" class="btn bg-warning btn-lg btn-block">Далее</b
 echo'</li>';
 echo'</form>';
 echo'</div>';
-echo'</div>';
+
 include 'inc/foot.php';
 exit();
 }
@@ -371,7 +371,7 @@ echo'<button type="submit" class="btn bg-warning btn-lg btn-block">Добави�
 echo'</li>';
 echo'</form>';
 echo'</div>';
-echo'</div>';
+
 include 'inc/foot.php';
 exit();
 }

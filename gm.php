@@ -3,12 +3,21 @@ include "inc/head.php";
 ?>
 <head><title>Админ панель</title></head>
 <?
+
+
+echo"$_GET[check]";
 echo'<form method="GET" action="#">';
 echo'<li class="list-group-item  justify-content-between align-items-center">';
 	////////////////////////////РЕГИОН////////////////////////////////////////////////
 	if ($usr['admin'] == '1') {
 	
 	?>
+	<div class="form-check">
+  <input name = 'check' class="form-check-input" type="checkbox" value="1" id="defaultCheck1">
+  <label class="form-check-label" for="defaultCheck1">
+    Флажок по умолчанию
+  </label>
+</div>
 	<table class="table">
 		<thead>
 			<tr>
@@ -24,7 +33,8 @@ echo'<li class="list-group-item  justify-content-between align-items-center">';
 			$results = $connect->query("SELECT * FROM conf ");
 			while ($row = $results->fetch_object()) {
 			$adrs = $connect->query("SELECT * FROM `adress` WHERE `region` = '$row->name' ");
-			$percent = ($row->all_dom /	$adrs->num_rows)	* 100;
+			$percent = ($adrs->num_rows / $row->all_dom)	* 100;
+			$percent = (int) $percent;		
 			$adress = $adrs->fetch_array(MYSQLI_ASSOC);
 			?>
 			<tr>

@@ -5,6 +5,7 @@ $adress = $_GET['adress'];
 $results = $connect->query("SELECT * FROM adress WHERE adress LIKE '$adress' LIMIT 1");
 $this_house =  $results->num_rows == 1 ? $results->fetch_array(MYSQLI_ASSOC) : '';
 /////////Если данных нет то осталяем без изменений, если есть добавляем их в переменную
+$complete = empty($_GET['check']) ? 0 : $_GET['check'];
 $dopzamok =  empty($_GET['dopzamok']) ? $this_house['dopzamok'] : $_GET['dopzamok'];
 $vihod1 =  empty($_GET['vihod']['0']) ? $this_house['vihod'] : $_GET['vihod']['0'];
 $vihod2 =  empty($_GET['vihod']['1']) ? $this_house['vihod2'] : $_GET['vihod']['1'];
@@ -57,7 +58,8 @@ podjezd = '$podjezd',
 text = '$text',
 editor = '$user',
 region = '$region',
-new = '$new'
+new = '$new',
+complete = '$complete'
 WHERE id = '$id'";
 if ($connect->query($sql) === true) {
 redirect("/result.php?adress=$adress");

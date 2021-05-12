@@ -17,5 +17,5 @@
 <meta http-equiv="content-language" content="ru"/>
 <meta name="robots" content="index,follow"/>
 <meta name="revisit-after" content="4 days"/>
-  <link rel="stylesheet" href="css/bootstrap.css?ver=1"> 
+  <link rel="stylesheet" href="css/bootstrap.css?ver=2"> 
 </head>

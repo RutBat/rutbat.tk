@@ -59,6 +59,7 @@ while ($row = mysqli_fetch_array($res_data))
 {
 
 $color = $row['new'] == 1 ? 'text-danger' : '';
+$complete_color = $row['complete'] ? 'style = "color: forestgreen;"' : '';
 $text = $row['new'] == 1 ? 'NEW' : '';
 ?>
 <script type="text/javascript">
@@ -70,7 +71,7 @@ parent.location = 'del.php?id=' + i;
 </script>
 
 <li class="list-group-item">
-<a class = "<?=$color?>" href = "/result?adress=<?=$row['adress']?>">
+<a <?=$complete_color?> class = "<?=$color?>" href = "/result?adress=<?=$row['adress']?>">
 	<label for="exampleInputEmail1"><?=$text?> <?=$row['adress']?></label>
 </a>
 <? if ($usr['region'] == $row['region'] || $usr['admin'] == '1')
