@@ -37,6 +37,12 @@ $sql = "SELECT * FROM adress  ORDER BY `adress` ASC LIMIT $offset, $size_page";
 $pages_sql = "SELECT COUNT(*) FROM `adress`";
 }
 }
+if($tech == 'complete'){
+$sql = "SELECT * FROM `adress` WHERE complete LIKE '1' ORDER BY `adress` ASC LIMIT $offset, $size_page";
+$pages_sql = "SELECT COUNT(*) FROM `adress` WHERE complete LIKE '1'";
+$split = "&adress=$adrs";
+$types = "&tech=$tech";
+}
 if($tech == 'pon'){
 $sql = "SELECT * FROM `adress` WHERE pon LIKE 'Gpon' ORDER BY `adress` ASC LIMIT $offset, $size_page";
 $pages_sql = "SELECT COUNT(*) FROM `adress` WHERE pon LIKE 'Gpon'";

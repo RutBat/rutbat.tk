@@ -17,6 +17,12 @@ redirect("all.php?tech=ethernet");
 include "inc/foot.php";
 exit();
 }
+if( $adress == "Complete" || $adress == "complete" || $adress == "Готово" || $adress == "готово"  ){
+echo"</div>";
+redirect("all.php?tech=complete");
+include "inc/foot.php";
+exit();
+}
 ////////////Если режим редактирования то меняем на противоположный
 if (isset($_GET['viewer']))
 {
