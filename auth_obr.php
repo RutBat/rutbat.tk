@@ -3,9 +3,6 @@ include 'inc/db.php';
 $log = trim(htmlspecialchars($_POST['login']));
 $pass = trim(htmlspecialchars($_POST['pass']));
 //////////////////ВЫХОД ИЗ СИСТЕМЫ//////////
-
-
-
 ////////////////////////если авторизация верна то пишем куки, если нет на стр. ошибок///////
 if (!empty($log) && !empty($pass)) {
 $us = $connect->query("SELECT * FROM `user` WHERE `name` = '" . $log . "'");
@@ -25,19 +22,16 @@ VALUES (
 '$log'
 )";
 if ($connect->query($zap) === false) {
-echo "Ошибка: " . $sql . "<br>" . $connect->error;	}
+	echo "Ошибка: " . $sql . "<br>" . $connect->error;	}
 echo '<meta http-equiv="refresh" content="0;URL=/">';
 } else {
 echo '<meta http-equiv="refresh" content="0;URL=/auth?err">';
 }
 exit();
 } else {
-
 echo '<meta http-equiv="refresh" content="0;URL=/auth?err">';
 }
 }
-
-
 if (isset($_GET['off'])) {
 session_start();
 setcookie('user', '', 1);

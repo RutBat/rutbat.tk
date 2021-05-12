@@ -1,5 +1,5 @@
 <?php
-include "inc/head.php"; 
+include "inc/head.php";
 $id = $_GET['id'];
 $adress = $_GET['adress'];
 $results = $connect->query("SELECT * FROM adress WHERE adress LIKE '$adress' LIMIT 1");
@@ -36,9 +36,8 @@ VALUES (
 '$date',
 '$log'
 )";
-
 if ($connect->query($zap) === false) {
-echo "Ошибка: " . $zap . "<br>" . $connect->error;	}
+	echo "Ошибка: " . $zap . "<br>" . $connect->error;	}
 $sql = "UPDATE adress SET
 adress = '$adress',
 vihod = '$vihod1',

@@ -13,10 +13,10 @@ if (isset($_GET['reg'])) { ?>
 			<?php
 			//////ВЫВОД ИЗ БАЗЫ ВСЕХ РЕГИОНОВ/////////
 			echo '<small  class="text-danger form-text">Регион</small><select name="region" class="custom-select mr-sm-2">';
-						$reg = $connect->query("SELECT * FROM region ");
-						while ($region = $reg->fetch_object()) {
-						echo "<option $sel_region value='$region->name'>$region->name</option>";
-						}
+							$reg = $connect->query("SELECT * FROM region ");
+							while ($region = $reg->fetch_object()) {
+							echo "<option $sel_region value='$region->name'>$region->name</option>";
+							}
 			echo '</select>';
 			//////////////////////////////////////////
 			?>
@@ -43,20 +43,20 @@ exit();
 ?>
 <head><title>Авторизация</title></head>
 <li class="list-group-item">
-	<form method="POST" action="/auth_obr.php">
-		<div class="form-group">
-			<center>Для пользования сервисом авторизуйтесь или зарегистрируйтесь под своей учетной записью</center>
-			<br>
-			<input name="login" id="exampleInputlogin" type="text" class="form-control" placeholder="Введите логин">
-		</div>
-		<div class="form-group">
-			<input name="pass" type="password" class="form-control" id="exampleInputPassword1" placeholder="Пароль">
-		</div>
-		<hr>
-		<div class="form-group">
-			<button type="submit" class="btn btn-warning btn-lg btn-block">Вход</button>
-		</div>
-	</form> <a class="btn btn-danger btn-lg btn-block" href="/auth.php?reg">Новый пользователь?
+<form method="POST" action="/auth_obr.php">
+<div class="form-group">
+	<center>Для пользования сервисом авторизуйтесь или зарегистрируйтесь под своей учетной записью</center>
+	<br>
+	<input name="login" id="exampleInputlogin" type="text" class="form-control" placeholder="Введите логин">
+</div>
+<div class="form-group">
+	<input name="pass" type="password" class="form-control" id="exampleInputPassword1" placeholder="Пароль">
+</div>
+<hr>
+<div class="form-group">
+	<button type="submit" class="btn btn-warning btn-lg btn-block">Вход</button>
+</div>
+</form> <a class="btn btn-danger btn-lg btn-block" href="/auth.php?reg">Новый пользователь?
 </a>
 </div>
 <?php ///низ сайта

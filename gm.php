@@ -20,18 +20,13 @@ echo'<li class="list-group-item  justify-content-between align-items-center">';
 			</tr>
 		</thead>
 		<tbody>
-
-
 			<?
 			$results = $connect->query("SELECT * FROM conf ");
-
-while ($row = $results->fetch_object()) {
-	$adrs = $connect->query("SELECT * FROM `adress` WHERE `region` = '$row->name' ");
-$percent = ($row->all_dom /	$adrs->num_rows)	* 100;
-$adress = $adrs->fetch_array(MYSQLI_ASSOC);
-
-?>
-
+			while ($row = $results->fetch_object()) {
+			$adrs = $connect->query("SELECT * FROM `adress` WHERE `region` = '$row->name' ");
+			$percent = ($row->all_dom /	$adrs->num_rows)	* 100;
+			$adress = $adrs->fetch_array(MYSQLI_ASSOC);
+			?>
 			<tr>
 				<th scope="row"><?=$row->id?></th>
 				<td><?=$row->name?></td>
@@ -39,9 +34,9 @@ $adress = $adrs->fetch_array(MYSQLI_ASSOC);
 				<td><?=$row->all_dom?></td>
 				<td><?=$percent?>%</td>
 			</tr>
-<?
-}
-					?>
+			<?
+			}
+			?>
 		</tbody>
 	</table>
 	<?

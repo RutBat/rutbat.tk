@@ -1,7 +1,6 @@
 <?php
 include "inc/head.php";
 $id = e($_GET['id']);
-
 $date = date("d.m.Y H:i:s");
 $user = $usr['name'];
 $region = $usr['region'];
@@ -14,13 +13,13 @@ $zap = "INSERT INTO log (kogda, log)
 		'$log'
 		)";
 		if ($connect->query($zap) === false) {
-	echo "Ошибка: " . $sql . "<br>" . $connect->error;	} 
+		echo "Ошибка: " . $sql . "<br>" . $connect->error;	}
 $results = $connect->query("SELECT * FROM adress WHERE id = '$id'");
 $sql = " DELETE FROM adress WHERE id = '$id'";
 if (mysqli_query($connect, $sql)) { ?>
-			<?php
-			red_index("/all.php?id=ok");
-			echo '<br><br><br>';
-			} else {echo "Error deleting record: " . mysqli_error($connect);}
-			mysqli_close($connect);
-			include 'inc/foot.php';
+<?php
+red_index("/all.php?id=ok");
+echo '<br><br><br>';
+} else {echo "Error deleting record: " . mysqli_error($connect);}
+mysqli_close($connect);
+include 'inc/foot.php';

@@ -1,7 +1,6 @@
 <?php
 session_start();
 include "inc/head.php";
-
 $adress = $_GET['adress'];
 ?>
 <head><title>Информация о доме <?=$adress?></title></head>
@@ -95,164 +94,164 @@ color: #212529;
 text-align: left;
 ">
 <tbody>
-    <tr>
-        <td>Адрес:</td>
-        <td><?=$row->adress?></td>
-    </tr>
-    <?
-    if ($row->oboryda == "Чердак") {
-    ?>
-    <tr>
-        <td>Количество подъездов:</td>
-        <td><?=$row->podjezd?></td>
-    </tr>
-    <tr>
-        <td>В каком подъезде выход:</td>
-        <?php
-        $row->vihod =  empty($row->vihod) ? '' : $row->vihod.'<br>';
-        $row->vihod2 = empty($row->vihod2) ? '' : $row->vihod2.'<br>';
-        $row->vihod3 = empty($row->vihod3) ? '' : $row->vihod3.'<br>';
-        $row->vihod4 = empty($row->vihod4) ? '' : $row->vihod4.'<br>';
-        $row->vihod5 = empty($row->vihod5) ? '' : $row->vihod5.'<br>';
-        ?>
-        <td><?=$row->vihod ?><?=$row->vihod2?><?=$row->vihod3?><?=$row->vihod4?><?=$row->vihod5?></td>
-    </tr>
-    <tr>
-        <td>Какая крыша:</td>
-        <td><?=$row->krisha?></td>
-    </tr>
-    <tr>
-        <td>В какой кв. ключ:</td>
-        <td><?=$row->kluch?></td>
-    </tr>
-    <tr>
-        <td>Наличие лестницы:</td>
-        <td><?=$row->lesnica?></td>
-    </tr>
-    <tr>
-        <td>Есть ли доп. замок:</td>
-        <td><?=$row->dopzamok?></td>
-    </tr>
-    <?
-    }
-    if ($row->oboryda == "Подвал") {
-    ?>
-    <tr>
-        <td>Количество подъездов:</td>
-        <td><?=$row->podjezd?></td>
-    </tr>
-    <tr>
-        <td>В каком подъезде выход:</td>
-        <?php
-        $row->vihod =  empty($row->vihod) ? '' : $row->vihod.'<br>';
-        $row->vihod2 = empty($row->vihod2) ? '' : $row->vihod2.'<br>';
-        $row->vihod3 = empty($row->vihod3) ? '' : $row->vihod3.'<br>';
-        $row->vihod4 = empty($row->vihod4) ? '' : $row->vihod4.'<br>';
-        $row->vihod5 = empty($row->vihod5) ? '' : $row->vihod5.'<br>';
-        ?>
-        <td><?=$row->vihod ?><?=$row->vihod2?><?=$row->vihod3?><?=$row->vihod4?><?=$row->vihod5?></td>
-    </tr>
-    <tr>
-        <td>В какой кв. ключ:</td>
-        <td><?=$row->kluch?></td>
-    </tr>
-    <tr>
-        <td>Есть ли доп. замок:</td>
-        <td><?=$row->dopzamok?></td>
-    </tr>
-    <?
-    }
-    if ($row->oboryda == "Фасад") {
-    ?>
-    <tr>
-        <td>Количество подъездов:</td>
-        <td><?=$row->podjezd?></td>
-    </tr>
-    <?
-    }
-    if ($row->oboryda == "Подъезд") {
-    ?>
-    <tr>
-        <td>Количество подъездов:</td>
-        <td><?=$row->podjezd?></td>
-    </tr>
-    <tr>
-        <td>В каком подъезде выход:</td>
-        <?php
-        $row->vihod =  empty($row->vihod) ? '' : $row->vihod.'<br>';
-        $row->vihod2 = empty($row->vihod2) ? '' : $row->vihod2.'<br>';
-        $row->vihod3 = empty($row->vihod3) ? '' : $row->vihod3.'<br>';
-        $row->vihod4 = empty($row->vihod4) ? '' : $row->vihod4.'<br>';
-        $row->vihod5 = empty($row->vihod5) ? '' : $row->vihod5.'<br>';
-        ?>
-        <td><?=$row->vihod ?><?=$row->vihod2?><?=$row->vihod3?><?=$row->vihod4?><?=$row->vihod5?></td>
-    </tr>
-    <tr>
-        <td>Есть ли доп. замок:</td>
-        <td><?=$row->dopzamok?></td>
-    </tr>
-    <?
-    }
-    if ($row->oboryda == "Не указанно") {
-    ?>
-    <tr>
-        <td>Количество подъездов:</td>
-        <td><?=$row->podjezd?></td>
-    </tr>
-    <tr>
-        <td>В каком подъезде выход:</td>
-        <?php
-        $row->vihod =  empty($row->vihod) ? '' : $row->vihod.'<br>';
-        $row->vihod2 = empty($row->vihod2) ? '' : $row->vihod2.'<br>';
-        $row->vihod3 = empty($row->vihod3) ? '' : $row->vihod3.'<br>';
-        $row->vihod4 = empty($row->vihod4) ? '' : $row->vihod4.'<br>';
-        $row->vihod5 = empty($row->vihod5) ? '' : $row->vihod5.'<br>';
-        ?>
-        <td><?=$row->vihod ?><?=$row->vihod2?><?=$row->vihod3?><?=$row->vihod4?><?=$row->vihod5?></td>
-    </tr>
-    <tr>
-        <td>Какая крыша:</td>
-        <td><?=$row->krisha?></td>
-    </tr>
-    <tr>
-        <td>В какой кв. ключ:</td>
-        <td><?=$row->kluch?></td>
-    </tr>
-    <tr>
-        <td>Наличие лестницы:</td>
-        <td><?=$row->lesnica?></td>
-    </tr>
-    <tr>
-        <td>Есть ли доп. замок:</td>
-        <td><?=$row->dopzamok?></td>
-    </tr>
-    <?
-    }
-    ?>
-    <tr class = 'text-danger'>
-        <td>Принадлежность к региону:</td>
-        <td><?=$row->region?></td>
-    </tr>
-    <tr>
-        <td>Тип подключения:</td>
-        <td><?=$row->pon?></td>
-    </tr>
-    <tr>
-        <td>Размещение оборудования:</td>
-        <td><?=$row->oboryda?></td>
-    </tr>
-    <tr>
-        <td>Ф.И.О председателя:</td>
-        <td><?=$row->pred?></td>
-    </tr>
-    <tr>
-        <td>Номер телефона председателя:</td>
-        <td><a href = "tel:<?=$row->phone?>"><?=$row->phone?></a></td>
-    </tr>
-    <tr>
-        <td>Примечание:</td>
-        <td><?=$row->text?></td>
-    </tr>
+<tr>
+	<td>Адрес:</td>
+	<td><?=$row->adress?></td>
+</tr>
+<?
+if ($row->oboryda == "Чердак") {
+?>
+<tr>
+	<td>Количество подъездов:</td>
+	<td><?=$row->podjezd?></td>
+</tr>
+<tr>
+	<td>В каком подъезде выход:</td>
+	<?php
+	$row->vihod =  empty($row->vihod) ? '' : $row->vihod.'<br>';
+	$row->vihod2 = empty($row->vihod2) ? '' : $row->vihod2.'<br>';
+	$row->vihod3 = empty($row->vihod3) ? '' : $row->vihod3.'<br>';
+	$row->vihod4 = empty($row->vihod4) ? '' : $row->vihod4.'<br>';
+	$row->vihod5 = empty($row->vihod5) ? '' : $row->vihod5.'<br>';
+	?>
+	<td><?=$row->vihod ?><?=$row->vihod2?><?=$row->vihod3?><?=$row->vihod4?><?=$row->vihod5?></td>
+</tr>
+<tr>
+	<td>Какая крыша:</td>
+	<td><?=$row->krisha?></td>
+</tr>
+<tr>
+	<td>В какой кв. ключ:</td>
+	<td><?=$row->kluch?></td>
+</tr>
+<tr>
+	<td>Наличие лестницы:</td>
+	<td><?=$row->lesnica?></td>
+</tr>
+<tr>
+	<td>Есть ли доп. замок:</td>
+	<td><?=$row->dopzamok?></td>
+</tr>
+<?
+}
+if ($row->oboryda == "Подвал") {
+?>
+<tr>
+	<td>Количество подъездов:</td>
+	<td><?=$row->podjezd?></td>
+</tr>
+<tr>
+	<td>В каком подъезде выход:</td>
+	<?php
+	$row->vihod =  empty($row->vihod) ? '' : $row->vihod.'<br>';
+	$row->vihod2 = empty($row->vihod2) ? '' : $row->vihod2.'<br>';
+	$row->vihod3 = empty($row->vihod3) ? '' : $row->vihod3.'<br>';
+	$row->vihod4 = empty($row->vihod4) ? '' : $row->vihod4.'<br>';
+	$row->vihod5 = empty($row->vihod5) ? '' : $row->vihod5.'<br>';
+	?>
+	<td><?=$row->vihod ?><?=$row->vihod2?><?=$row->vihod3?><?=$row->vihod4?><?=$row->vihod5?></td>
+</tr>
+<tr>
+	<td>В какой кв. ключ:</td>
+	<td><?=$row->kluch?></td>
+</tr>
+<tr>
+	<td>Есть ли доп. замок:</td>
+	<td><?=$row->dopzamok?></td>
+</tr>
+<?
+}
+if ($row->oboryda == "Фасад") {
+?>
+<tr>
+	<td>Количество подъездов:</td>
+	<td><?=$row->podjezd?></td>
+</tr>
+<?
+}
+if ($row->oboryda == "Подъезд") {
+?>
+<tr>
+	<td>Количество подъездов:</td>
+	<td><?=$row->podjezd?></td>
+</tr>
+<tr>
+	<td>В каком подъезде выход:</td>
+	<?php
+	$row->vihod =  empty($row->vihod) ? '' : $row->vihod.'<br>';
+	$row->vihod2 = empty($row->vihod2) ? '' : $row->vihod2.'<br>';
+	$row->vihod3 = empty($row->vihod3) ? '' : $row->vihod3.'<br>';
+	$row->vihod4 = empty($row->vihod4) ? '' : $row->vihod4.'<br>';
+	$row->vihod5 = empty($row->vihod5) ? '' : $row->vihod5.'<br>';
+	?>
+	<td><?=$row->vihod ?><?=$row->vihod2?><?=$row->vihod3?><?=$row->vihod4?><?=$row->vihod5?></td>
+</tr>
+<tr>
+	<td>Есть ли доп. замок:</td>
+	<td><?=$row->dopzamok?></td>
+</tr>
+<?
+}
+if ($row->oboryda == "Не указанно") {
+?>
+<tr>
+	<td>Количество подъездов:</td>
+	<td><?=$row->podjezd?></td>
+</tr>
+<tr>
+	<td>В каком подъезде выход:</td>
+	<?php
+	$row->vihod =  empty($row->vihod) ? '' : $row->vihod.'<br>';
+	$row->vihod2 = empty($row->vihod2) ? '' : $row->vihod2.'<br>';
+	$row->vihod3 = empty($row->vihod3) ? '' : $row->vihod3.'<br>';
+	$row->vihod4 = empty($row->vihod4) ? '' : $row->vihod4.'<br>';
+	$row->vihod5 = empty($row->vihod5) ? '' : $row->vihod5.'<br>';
+	?>
+	<td><?=$row->vihod ?><?=$row->vihod2?><?=$row->vihod3?><?=$row->vihod4?><?=$row->vihod5?></td>
+</tr>
+<tr>
+	<td>Какая крыша:</td>
+	<td><?=$row->krisha?></td>
+</tr>
+<tr>
+	<td>В какой кв. ключ:</td>
+	<td><?=$row->kluch?></td>
+</tr>
+<tr>
+	<td>Наличие лестницы:</td>
+	<td><?=$row->lesnica?></td>
+</tr>
+<tr>
+	<td>Есть ли доп. замок:</td>
+	<td><?=$row->dopzamok?></td>
+</tr>
+<?
+}
+?>
+<tr class = 'text-danger'>
+	<td>Принадлежность к региону:</td>
+	<td><?=$row->region?></td>
+</tr>
+<tr>
+	<td>Тип подключения:</td>
+	<td><?=$row->pon?></td>
+</tr>
+<tr>
+	<td>Размещение оборудования:</td>
+	<td><?=$row->oboryda?></td>
+</tr>
+<tr>
+	<td>Ф.И.О председателя:</td>
+	<td><?=$row->pred?></td>
+</tr>
+<tr>
+	<td>Номер телефона председателя:</td>
+	<td><a href = "tel:<?=$row->phone?>"><?=$row->phone?></a></td>
+</tr>
+<tr>
+	<td>Примечание:</td>
+	<td><?=$row->text?></td>
+</tr>
 </tbody>
 </table>
 </li></main>
@@ -290,77 +289,77 @@ echo'<li class="list-group-item  justify-content-between align-items-center">';
 out_sel("podjezd", "$adress", "Сколько подъездов?");
 echo '<small  class="form-text text-muted">В каком подъезде подвал?</small>
 <select multiple name="vihod[]" class="custom-select mr-sm-2">';
-    $vih = $connect->query("SELECT * FROM vihod ");
-    while ($vihod = $vih->fetch_object())
-    {
-    $sel_vih = $row->vihod == $vihod->name ? 'selected' : '';
-    $sel_vih2 = $row->vihod2 == $vihod->name ? 'selected' : '';
-    $sel_vih3 = $row->vihod3 == $vihod->name ? 'selected' : '';
-    $sel_vih4 = $row->vihod4 == $vihod->name ? 'selected' : '';
-    $sel_vih5 = $row->vihod5 == $vihod->name ? 'selected' : '';
-    echo "<option $sel_vih $sel_vih2 $sel_vih3 $sel_vih4 $sel_vih5 value='$vihod->name'>$vihod->name</option>";
-    }
+$vih = $connect->query("SELECT * FROM vihod ");
+while ($vihod = $vih->fetch_object())
+{
+$sel_vih = $row->vihod == $vihod->name ? 'selected' : '';
+$sel_vih2 = $row->vihod2 == $vihod->name ? 'selected' : '';
+$sel_vih3 = $row->vihod3 == $vihod->name ? 'selected' : '';
+$sel_vih4 = $row->vihod4 == $vihod->name ? 'selected' : '';
+$sel_vih5 = $row->vihod5 == $vihod->name ? 'selected' : '';
+echo "<option $sel_vih $sel_vih2 $sel_vih3 $sel_vih4 $sel_vih5 value='$vihod->name'>$vihod->name</option>";
+}
 echo '</select>';
 out_in("kluch", "$adress", "У кого ключ от чердака");
 out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
 }
 if ($row->oboryda == "Подъезд") {
 echo'<li class="list-group-item  justify-content-between align-items-center">';
-    out_sel("podjezd", "$adress", "Сколько подъездов?");
-    echo '<small  class="form-text text-muted">В каком подъезде оборудование?</small>
-    <select multiple name="vihod[]" class="custom-select mr-sm-2">';
-        $vih = $connect->query("SELECT * FROM vihod ");
-        while ($vihod = $vih->fetch_object())
-        {
-        $sel_vih = $row->vihod == $vihod->name ? 'selected' : '';
-        $sel_vih2 = $row->vihod2 == $vihod->name ? 'selected' : '';
-        $sel_vih3 = $row->vihod3 == $vihod->name ? 'selected' : '';
-        $sel_vih4 = $row->vihod4 == $vihod->name ? 'selected' : '';
-        $sel_vih5 = $row->vihod5 == $vihod->name ? 'selected' : '';
-        echo "<option $sel_vih $sel_vih2 $sel_vih3 $sel_vih4 $sel_vih5 value='$vihod->name'>$vihod->name</option>";
-        }
-    echo '</select>';
-    out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
-    }
-    if ($row->oboryda == "Фасад") {
-    echo'<li class="list-group-item  justify-content-between align-items-center">';
-        out_sel("podjezd", "$adress", "Сколько подъездов?");
-        }
-        if ($row->oboryda == "Не указанно") {
-        echo'<li class="list-group-item  justify-content-between align-items-center">';
-            echo '<small  class="form-text text-muted">В каком подъезде выход?</small>
-            <select multiple name="vihod[]" class="custom-select mr-sm-2">';
-                $vih = $connect->query("SELECT * FROM vihod ");
-                while ($vihod = $vih->fetch_object())
-                {
-                $sel_vih = $row->vihod == $vihod->name ? 'selected' : '';
-                $sel_vih2 = $row->vihod2 == $vihod->name ? 'selected' : '';
-                $sel_vih3 = $row->vihod3 == $vihod->name ? 'selected' : '';
-                $sel_vih4 = $row->vihod4 == $vihod->name ? 'selected' : '';
-                $sel_vih5 = $row->vihod5 == $vihod->name ? 'selected' : '';
-                echo "<option $sel_vih $sel_vih2 $sel_vih3 $sel_vih4 $sel_vih5 value='$vihod->name'>$vihod->name</option>";
-                }
-            echo '</select>';
-            //////как же я заебался это писать/////////
-            out_sel("podjezd", "$adress", "Сколько подъездов?");
-            out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
-            out_in("kluch", "$adress", "У кого ключ от чердака");
-            }
-            if ($usr['admin'] == '1')
-            {
-            out_sel("region", "$adress", "<font color = 'red'>Регион</font>");
-            }
-            else
-            {
-            echo "<input type='hidden' name='region' value='$usr[region]'>";
-            }
-            out_sel("pon", "$adress", "Технология подключения");
-            out_sel("oboryda", "$adress", "Где оборудование?");
-            out_in("pred", "$adress", "Кв. и Ф.И.О председателя");
-            out_in("phone", "$adress", "Номер телефона председателя");
-            out_in("text", "$adress", "Для заметок");
-            }
-        echo '<button type="submit" class="btn btn-primary btn-lg btn-block">Редактировать дом</button></li>
-    </form>
+out_sel("podjezd", "$adress", "Сколько подъездов?");
+echo '<small  class="form-text text-muted">В каком подъезде оборудование?</small>
+<select multiple name="vihod[]" class="custom-select mr-sm-2">';
+	$vih = $connect->query("SELECT * FROM vihod ");
+	while ($vihod = $vih->fetch_object())
+	{
+	$sel_vih = $row->vihod == $vihod->name ? 'selected' : '';
+	$sel_vih2 = $row->vihod2 == $vihod->name ? 'selected' : '';
+	$sel_vih3 = $row->vihod3 == $vihod->name ? 'selected' : '';
+	$sel_vih4 = $row->vihod4 == $vihod->name ? 'selected' : '';
+	$sel_vih5 = $row->vihod5 == $vihod->name ? 'selected' : '';
+	echo "<option $sel_vih $sel_vih2 $sel_vih3 $sel_vih4 $sel_vih5 value='$vihod->name'>$vihod->name</option>";
+	}
+echo '</select>';
+out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
+}
+if ($row->oboryda == "Фасад") {
+echo'<li class="list-group-item  justify-content-between align-items-center">';
+	out_sel("podjezd", "$adress", "Сколько подъездов?");
+	}
+	if ($row->oboryda == "Не указанно") {
+	echo'<li class="list-group-item  justify-content-between align-items-center">';
+		echo '<small  class="form-text text-muted">В каком подъезде выход?</small>
+		<select multiple name="vihod[]" class="custom-select mr-sm-2">';
+			$vih = $connect->query("SELECT * FROM vihod ");
+			while ($vihod = $vih->fetch_object())
+			{
+			$sel_vih = $row->vihod == $vihod->name ? 'selected' : '';
+			$sel_vih2 = $row->vihod2 == $vihod->name ? 'selected' : '';
+			$sel_vih3 = $row->vihod3 == $vihod->name ? 'selected' : '';
+			$sel_vih4 = $row->vihod4 == $vihod->name ? 'selected' : '';
+			$sel_vih5 = $row->vihod5 == $vihod->name ? 'selected' : '';
+			echo "<option $sel_vih $sel_vih2 $sel_vih3 $sel_vih4 $sel_vih5 value='$vihod->name'>$vihod->name</option>";
+			}
+		echo '</select>';
+		//////как же я заебался это писать/////////
+		out_sel("podjezd", "$adress", "Сколько подъездов?");
+		out_sel("dopzamok", "$adress", "Есть ли доп. замок?");
+		out_in("kluch", "$adress", "У кого ключ от чердака");
+		}
+		if ($usr['admin'] == '1')
+		{
+		out_sel("region", "$adress", "<font color = 'red'>Регион</font>");
+		}
+		else
+		{
+		echo "<input type='hidden' name='region' value='$usr[region]'>";
+		}
+		out_sel("pon", "$adress", "Технология подключения");
+		out_sel("oboryda", "$adress", "Где оборудование?");
+		out_in("pred", "$adress", "Кв. и Ф.И.О председателя");
+		out_in("phone", "$adress", "Номер телефона председателя");
+		out_in("text", "$adress", "Для заметок");
+		}
+	echo '<button type="submit" class="btn btn-primary btn-lg btn-block">Редактировать дом</button></li>
+</form>
 </ul>';
 include 'inc/foot.php';
