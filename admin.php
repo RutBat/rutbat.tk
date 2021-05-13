@@ -187,6 +187,17 @@ echo'</div>';
 include 'inc/foot.php';
 exit();
 }
+if($_SESSION['oboryda'] == 'Не указанно' && $_SESSION['step'] == 2 ){
+session_start();
+$_SESSION['adress'] = '';
+$_SESSION['region'] = '';
+redirect('admin', '0');
+?>
+<script>alert('Размещение оборудования это ключевой пункт! Попробуйте еще раз.')</script>
+<?
+include 'inc/foot.php';
+exit();
+}
 if($_SESSION['oboryda'] == 'Фасад' && $_SESSION['step'] == 2 ){
 echo'<form method="GET" action="#">';
 echo'<li class="list-group-item  justify-content-between align-items-center">';
