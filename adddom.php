@@ -17,7 +17,7 @@ echo '<div class="contadiner">';
 			$pon = $_GET['pon'];
 			$region = $_GET['region'];
 			$podjezd = $_GET['podjezd'];
-			$text = $_GET['text'];
+			$prim = trim($_GET['text']);
 			$new = $_GET['new'];
 	if($new == 1){
 	$news = "1";
@@ -44,15 +44,26 @@ echo '<div class="contadiner">';
 			}
 			$user = $usr['name'];
 			$date = date("d.m.Y H:i:s");
-	if($new == 0){
-	$text = 'добавил дом ';}else{
-	$text = "добавил шаблон дома";}
-	$log = "Пользователь $user $text $adress";
+if(empty($prim){
+if($new == 0){
+	$prim = $log = "Пользователь $user добавил дом $adress";
 	$zap = "INSERT INTO log (kogda, log)
 			VALUES (
 			'$date',
 			'$log'
 			)";
+}else{
+	$prim = $log = "Пользователь $user добавил шаблон дома $adress";
+	$zap = "INSERT INTO log (kogda, log)
+			VALUES (
+			'$date',
+			'$log'
+			)";
+}
+}
+if(!empty($_GET['text'])){
+$prim = $_GET['text'];
+}
 			if ($connect->query($zap) === false) {
 			echo "Ошибка: " . $sql . "<br>" . $connect->error;	}
 			$sql = "INSERT INTO adress (adress, vihod, vihod2, vihod3, vihod4, vihod5, dopzamok, kluch, pred, phone, krisha, lesnica, pon, podjezd, text, editor, region, new)
@@ -71,7 +82,7 @@ echo '<div class="contadiner">';
 			'$lesnica',
 			'$pon',
 			'$podjezd',
-			'$log',
+			'$prim',
 			'$user',
 			'$region',
 			'$news'

@@ -21,6 +21,7 @@ include "inc/head.php"; ?>
 	<b>по улице</b> (Киевская)<br>
 	<b>по адресу</b> (Киевская 100)<br>
 	<b>по номеру дома</b> (100)<br>
+	<b>по готовности</b> (Готово)<br>
 	<b>по технологии подключения</b> (pon/ethernet)
 </li>
 <li class="text-center list-group-item-success list-group-item">Все</li>

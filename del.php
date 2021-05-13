@@ -18,7 +18,8 @@ $results = $connect->query("SELECT * FROM adress WHERE id = '$id'");
 $sql = " DELETE FROM adress WHERE id = '$id'";
 if (mysqli_query($connect, $sql)) { ?>
 <?php
-red_index("/all.php?id=ok");
+$whereareyoufrom = $_SERVER['HTTP_REFERER'];
+red_index("$whereareyoufrom&id=ok");
 echo '<br><br><br>';
 } else {echo "Error deleting record: " . mysqli_error($connect);}
 mysqli_close($connect);

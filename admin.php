@@ -64,8 +64,8 @@ exit;
 }
 $user = $usr['name'];
 $date = date("d.m.Y H:i:s");
-$text = 'добавил дом ';
-$log = "Пользователь $user $text $adress";
+$text2 = 'добавил дом ';
+$log = "Пользователь $user $text2 $adress";
 $zap = "INSERT INTO log (kogda, log)
 VALUES (
 '$date',
@@ -73,6 +73,9 @@ VALUES (
 )";
 if ($connect->query($zap) === false) {
 echo "Ошибка: " . $sql . "<br>" . $connect->error;	}
+if(!empty($text)){
+	$log = "$text";
+}
 $sql = "INSERT INTO adress (adress, vihod, vihod2, vihod3, vihod4, vihod5, oboryda, dopzamok, kluch, pred, phone, krisha, lesnica, pon, podjezd, text, editor, region, new)
 VALUES (
 '$adress',
@@ -363,7 +366,7 @@ echo'<input name="phone" type="tel" name="phone" id="phone" placeholder="+797812
 echo'<small class="form-text text-muted">Для заметок</small>';
 //////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////Примечание////////////////////////////////////////////////-->
-echo'<textarea name="text" class="form-control" rows="3">Примечание</textarea>';
+echo'<textarea name="text" class="form-control" rows="3"></textarea>';
 //////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////КНОПКА////////////////////////////////////////////////
 echo "<input type='hidden' name='step' value='final'>";
