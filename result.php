@@ -381,7 +381,7 @@ if ($row->oboryda == "Фасад") {
 		out_in("phone", "$adress", "Номер телефона председателя");
 		out_in("text", "$adress", "Для заметок");
 		}
-	echo '<button type="submit" class="btn btn-primary btn-lg btn-block">Редактировать дом</button></li>
+	echo '<button type="submit" class="btn btn-primary btn-lg btn-block">Сохранить изменения</button></li>
 </form>
 </ul>';
 include 'inc/foot.php';
