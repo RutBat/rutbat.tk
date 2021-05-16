@@ -1,27 +1,27 @@
 <?php
 include "inc/head.php";
-$id = $_GET['id'];
-$adress = $_GET['adress'];
+$id = htmlentities($_GET['id'],  ENT_QUOTES,  "utf-8");
+$adress = htmlentities($_GET['adress'],  ENT_QUOTES,  "utf-8");
 $results = $connect->query("SELECT * FROM adress WHERE adress LIKE '$adress' LIMIT 1");
 $this_house =  $results->num_rows == 1 ? $results->fetch_array(MYSQLI_ASSOC) : '';
 /////////Если данных нет то осталяем без изменений, если есть добавляем их в переменную
-$complete = empty($_GET['check']) ? 0 : $_GET['check'];
-$dopzamok =  empty($_GET['dopzamok']) ? $this_house['dopzamok'] : $_GET['dopzamok'];
-$vihod1 =  empty($_GET['vihod']['0']) ? $this_house['vihod'] : $_GET['vihod']['0'];
-$vihod2 =  empty($_GET['vihod']['1']) ? $this_house['vihod2'] : $_GET['vihod']['1'];
-$vihod3 =  empty($_GET['vihod']['2']) ? $this_house['vihod3'] : $_GET['vihod']['2'];
-$vihod4 =  empty($_GET['vihod']['3']) ? $this_house['vihod4'] : $_GET['vihod']['3'];
-$vihod5 =  empty($_GET['vihod']['4']) ? $this_house['vihod5'] : $_GET['vihod']['4'];
-$kluch =  empty($_GET['kluch']) ? $this_house['kluch'] : $_GET['kluch'];
-$krisha =  empty($_GET['krisha']) ? $this_house['krisha'] : $_GET['krisha'];
-$podjezd =  empty($_GET['podjezd']) ? $this_house['podjezd'] : $_GET['podjezd'];
-$pon =  empty($_GET['pon']) ? $this_house['pon'] : $_GET['pon'];
-$oboryda =  empty($_GET['oboryda']) ? $this_house['oboryda'] : $_GET['oboryda'];
-$lesnica =  empty($_GET['lesnica']) ? $this_house['lesnica'] : $_GET['lesnica'];
-$pred =  empty($_GET['pred']) ? $this_house['pred'] : $_GET['pred'];
-$phone =  empty($_GET['phone']) ? $this_house['phone'] : $_GET['phone'];
-$region =  empty($_GET['region']) ? $this_house['region'] : $_GET['region'];
-$text =  empty($_GET['text']) ? $this_house['text'] : $_GET['text'];
+$complete = empty(htmlentities($_GET['check'],  ENT_QUOTES,  "utf-8")) ? 0 : $_GET['check'],  ENT_QUOTES,  "utf-8");
+$dopzamok =  empty(htmlentities($_GET['dopzamok'],  ENT_QUOTES,  "utf-8")) ? $this_house['dopzamok'] : htmlentities($_GET['dopzamok'],  ENT_QUOTES,  "utf-8");
+$vihod1 =  empty(htmlentities($_GET['vihod']['0'],  ENT_QUOTES,  "utf-8")) ? $this_house['vihod'] : htmlentities($_GET['vihod']['0'],  ENT_QUOTES,  "utf-8");
+$vihod2 =  empty(htmlentities($_GET['vihod']['1'],  ENT_QUOTES,  "utf-8")) ? $this_house['vihod2'] : htmlentities($_GET['vihod']['1'],  ENT_QUOTES,  "utf-8");
+$vihod3 =  empty(htmlentities($_GET['vihod']['2'],  ENT_QUOTES,  "utf-8")) ? $this_house['vihod3'] : htmlentities($_GET['vihod']['2'],  ENT_QUOTES,  "utf-8");
+$vihod4 =  empty(htmlentities($_GET['vihod']['3'],  ENT_QUOTES,  "utf-8")) ? $this_house['vihod4'] : htmlentities($_GET['vihod']['3'],  ENT_QUOTES,  "utf-8");
+$vihod5 =  empty(htmlentities($_GET['vihod']['4'],  ENT_QUOTES,  "utf-8")) ? $this_house['vihod5'] : htmlentities($_GET['vihod']['4'],  ENT_QUOTES,  "utf-8");
+$kluch =  empty(htmlentities($_GET['kluch'],  ENT_QUOTES,  "utf-8")) ? $this_house['kluch'] : htmlentities($_GET['kluch'],  ENT_QUOTES,  "utf-8");
+$krisha =  empty(htmlentities($_GET['krisha'],  ENT_QUOTES,  "utf-8")) ? $this_house['krisha'] : htmlentities($_GET['krisha'],  ENT_QUOTES,  "utf-8");
+$podjezd =  empty(htmlentities($_GET['podjezd'],  ENT_QUOTES,  "utf-8")) ? $this_house['podjezd'] : htmlentities($_GET['podjezd'],  ENT_QUOTES,  "utf-8");
+$pon =  empty(htmlentities($_GET['pon'],  ENT_QUOTES,  "utf-8")) ? $this_house['pon'] : htmlentities($_GET['pon'],  ENT_QUOTES,  "utf-8");
+$oboryda =  empty(htmlentities($_GET['oboryda'],  ENT_QUOTES,  "utf-8")) ? $this_house['oboryda'] : htmlentities($_GET['oboryda'],  ENT_QUOTES,  "utf-8");
+$lesnica =  empty(htmlentities($_GET['lesnica'],  ENT_QUOTES,  "utf-8")) ? $this_house['lesnica'] : htmlentities($_GET['lesnica'],  ENT_QUOTES,  "utf-8");
+$pred =  empty(htmlentities($_GET['pred'],  ENT_QUOTES,  "utf-8")) ? $this_house['pred'] : htmlentities($_GET['pred'],  ENT_QUOTES,  "utf-8");
+$phone =  empty(htmlentities($_GET['phone'],  ENT_QUOTES,  "utf-8")) ? $this_house['phone'] : htmlentities($_GET['phone'],  ENT_QUOTES,  "utf-8");
+$region =  empty(htmlentities($_GET['region'],  ENT_QUOTES,  "utf-8")) ? $this_house['region'] : htmlentities($_GET['region'],  ENT_QUOTES,  "utf-8");
+$text =  empty(htmlentities($_GET['text'],  ENT_QUOTES,  "utf-8")) ? $this_house['text'] : htmlentities($_GET['text'],  ENT_QUOTES,  "utf-8");
 //////////////////////////////////////////////////////////////////////////////////////////////
 $new = 0;
 if (empty($adress)) {

@@ -7,18 +7,20 @@ include "inc/head.php"; ?>
 		<?php
 		$filename = "img/$usr[name].png";
 		$tim = filemtime("img/$usr[name].png");
-		if (file_exists($filename)) {
-		$ava = "img/$usr[name].png?r=$tim";
-		} else {
-		$ava = "img/user.png";
-		}
+	
+$ava = file_exists($filename) ? "img/$usr[name].png?r=$tim" : "img/user.png" ;
+	// if (file_exists($filename)) {
+	// 	$ava = "img/$usr[name].png?r=$tim";
+	// 	} else {
+	// 	$ava = "img/user.png";
+	// 	}
 		?>
 		<style>
 			.custom-file-label::after {
 		display: none;
 		}
 		</style>
-		<img style = "width: 128px;" data-toggle="tooltip" data-placement="top" title="Для смены нажмите на изображение" class="rounded-circle mx-auto d-block" src="<?=$ava?>" alt="">
+		<img style = "width: 128px; height:128px;" data-toggle="tooltip" data-placement="top" title="Для смены нажмите на изображение" class="rounded-circle mx-auto d-block" src="<?=$ava?>" alt="">
 	</div>
 	<div class="press" style="display: none">
 		<form name="upload" action="download_img.php" method="POST" ENCTYPE="multipart/form-data">
@@ -48,10 +50,9 @@ include "inc/head.php"; ?>
 	
 	redir("user","0");}
 	if($usr['admin'] == 1){
-	?>
-	<div class="form-group">
-		<textarea class="form-control" id="exampleTextarea" rows="3">
-		<?
+	
+	echo'<div class="form-group">
+		<textarea class="form-control" id="exampleTextarea" rows="3">';
 		$sql = "SELECT * FROM log";
 		$res_data = mysqli_query($connect, $sql);
 		while($row = mysqli_fetch_array($res_data)){
@@ -59,15 +60,13 @@ include "inc/head.php"; ?>
 		$kogda = trim($row['kogda']);
 		echo"[$kogda] $text \n";
 		}
-		?>
-		</textarea>
+	echo'
+</textarea>
 	</div>
-	
-	
 	<form action="" method="POST" target="_self">
 		<input class="btn btn-outline-success btn-sm" type="submit" name="submit" value="Очистить логи" />
-	</form>
-	<?}
+	</form>';
+	}
 	
 	?>
 	<br>

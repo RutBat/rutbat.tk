@@ -2,7 +2,9 @@
 include "inc/db.php";
 if (isset($_POST['search'])) {
 $Name = $_POST['search'];
+$name = mysql_real_escape_string($Name);
 $Query = "SELECT * FROM adress WHERE adress LIKE '$Name%' LIMIT 5";
+
 $ExecQuery = mysqli_query($connect, $Query);
 // Создаем список для отображения результатов
 echo '<ul class="list-group">';

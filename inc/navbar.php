@@ -5,7 +5,7 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded" style = "
 
 
 
-if (!empty($_COOKIE['user']))
+if (!empty(htmlentities($_COOKIE['user'])))
 {
 ?>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation"> 
@@ -44,15 +44,21 @@ if (!empty($_COOKIE['user']))
         </a> 
         <a class="dropdown-item" href="/ins">Инструкция!!!
         </a> 
-<!--         <a class="dropdown-item" href="http://192.168.0.1">192.168.0.1
-        </a> 
-        <a class="dropdown-item" href="http://192.168.1.1">192.168.1.1
-        </a>  -->
       </div>
     </li>
   </ul>
+    <?php
+    $filename = "img/$usr[name].png";
+    $tim = filemtime("img/$usr[name].png");
+    if (file_exists($filename)) {
+    $ava = "img/$usr[name].png?r=$tim";
+    } else {
+    $ava = "img/user.png";
+    }
+    ?>
   <a href="/user.php" class="btn btn-secondary">
-    <?=$_COOKIE['user'];?>
+    <img src="<?=$ava?>" width="32px" height = "32px" style=" border-radius: 1rem;">
+    <?=$usr['name'];?>
   </a>
 </div>
 

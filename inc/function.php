@@ -23,6 +23,7 @@ return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
 <link rel="stylesheet" type="text/css" href="css/preloader.css" />
 <?php
 function redirect ($url) {
+	$url = htmlentities($url);
 ?>
 <div class="d-flex justify-content-center" style = "
 		padding: 25% 25%;
@@ -34,9 +35,12 @@ function redirect ($url) {
 echo'<meta http-equiv="refresh" content="0;URL='."$url".'">';
 }
 function red_index ($url) {
+	$url = htmlentities($url);
 echo'<meta http-equiv="refresh" content="0;URL='."$url".'">';
 }
 function redir ($url,$tim) {
+$url = htmlentities($url);
+$url = htmlentities($tim);
 ?>
 <meta http-equiv="refresh" content="<?=$tim?>;URL=<?=$url?>">
 <?php
@@ -58,7 +62,7 @@ function redir ($url,$tim) {
 </div>
 			';
 		}
-$user = $_COOKIE['user'];
+$user = htmlentities($_COOKIE['user']);
 		// if(empty($user)){
 		// 	$gde = $_SERVER["REQUEST_URI"];
 		// 	if($gde != "/auth.php" && $gde != "/auth.php?reg" && $gde != "/reg.php" && $gde != "auth.php?err" ){
@@ -75,8 +79,8 @@ $usr = $user->fetch_array(MYSQLI_ASSOC);
 
 
 
-$name = $_COOKIE['user'];
-$pass = $_COOKIE['pass'];
+$name = htmlentities($_COOKIE['user']);
+$pass = htmlentities($_COOKIE['pass']);
 $user = $connect->query("SELECT * FROM `user` WHERE `name` = '". $name ."' and `pass` = '". $pass ."'");
 if ($user->num_rows == 0) {
 			$gde = $_SERVER["REQUEST_URI"];
@@ -95,11 +99,12 @@ exit();
 
 
 
-
-
 //функция вывода результата из базы данных
 function out_sel ($val1,$val2,$val3) {
 global $connect;
+$val1 = htmlentities($val1);
+$val2 = htmlentities($val2);
+$val3 = htmlentities($val3);
 $results = $connect->query("SELECT * FROM adress WHERE adress LIKE '$val2' ");
 
 while ($row = $results->fetch_object()) {
@@ -123,6 +128,9 @@ echo '</select>';
 
 function out_in ($val1,$val2,$val3) {
 global $connect;
+$val1 = htmlentities($val1);
+$val2 = htmlentities($val2);
+$val3 = htmlentities($val3);
 $results = $connect->query("SELECT * FROM adress WHERE adress LIKE '$val2' ");
 
 while ($row = $results->fetch_object()) {

@@ -1,24 +1,24 @@
 <?php
 include ("inc/head.php");
 echo '<div class="contadiner">';
-			$adress = $_GET['adress'];
-			$vihod1 = $_GET['vihod']['0'];
-			$vihod2 = $_GET['vihod']['1'];
-			$vihod3 = $_GET['vihod']['2'];
-			$vihod4 = $_GET['vihod']['3'];
-			$vihod5 = $_GET['vihod']['4'];
-			$vihod = $_GET['vihod'];
-			$dopzamok = $_GET['dopzamok'];
-			$kluch = $_GET['klych'];
-			$pred = $_GET['pred'];
-			$phone = $_GET['phone'];
-			$krisha = $_GET['krisha'];
-			$lesnica = $_GET['lesnica'];
-			$pon = $_GET['pon'];
-			$region = $_GET['region'];
-			$podjezd = $_GET['podjezd'];
-			$prim = trim($_GET['text']);
-			$new = $_GET['new'];
+			$adress = htmlentities($_GET['adress'], ENT_QUOTES,  "utf-8");
+			$vihod1 = htmlentities($_GET['vihod']['0'], ENT_QUOTES,  "utf-8");
+			$vihod2 = htmlentities($_GET['vihod']['1'], ENT_QUOTES,  "utf-8");
+			$vihod3 = htmlentities($_GET['vihod']['2'], ENT_QUOTES,  "utf-8");
+			$vihod4 = htmlentities($_GET['vihod']['3'], ENT_QUOTES,  "utf-8");
+			$vihod5 = htmlentities($_GET['vihod']['4'], ENT_QUOTES,  "utf-8");
+			$vihod = htmlentities($_GET['vihod'], ENT_QUOTES,  "utf-8");
+			$dopzamok = htmlentities($_GET['dopzamok'], ENT_QUOTES,  "utf-8");
+			$kluch = htmlentities($_GET['klych'], ENT_QUOTES,  "utf-8");
+			$pred = htmlentities($_GET['pred'], ENT_QUOTES,  "utf-8");
+			$phone = htmlentities($_GET['phone'], ENT_QUOTES,  "utf-8");
+			$krisha = htmlentities($_GET['krisha'], ENT_QUOTES,  "utf-8");
+			$lesnica = htmlentities($_GET['lesnica'], ENT_QUOTES,  "utf-8");
+			$pon = htmlentities($_GET['pon'], ENT_QUOTES,  "utf-8");
+			$region = htmlentities($_GET['region'], ENT_QUOTES,  "utf-8");
+			$podjezd = htmlentities($_GET['podjezd'], ENT_QUOTES,  "utf-8");
+			$prim = htmlentities(trim($_GET['text']), ENT_QUOTES,  "utf-8");
+			$new = htmlentities($_GET['new'], ENT_QUOTES,  "utf-8");
 	if($new == 1){
 	$news = "1";
 	}else{
@@ -44,7 +44,7 @@ echo '<div class="contadiner">';
 			}
 			$user = $usr['name'];
 			$date = date("d.m.Y H:i:s");
-if(empty($prim){
+if(empty($prim)){
 if($new == 0){
 	$prim = $log = "Пользователь $user добавил дом $adress";
 	$zap = "INSERT INTO log (kogda, log)
@@ -62,11 +62,11 @@ if($new == 0){
 }
 }
 if(!empty($_GET['text'])){
-$prim = $_GET['text'];
+$prim =  htmlentities($_GET['text'], ENT_QUOTES,  "utf-8");
 }
 			if ($connect->query($zap) === false) {
 			echo "Ошибка: " . $sql . "<br>" . $connect->error;	}
-			$sql = "INSERT INTO adress (adress, vihod, vihod2, vihod3, vihod4, vihod5, dopzamok, kluch, pred, phone, krisha, lesnica, pon, podjezd, text, editor, region, new)
+			$sql = "INSERT INTO adress (adress, vihod, vihod2, vihod3, vihod4, vihod5, oboryda, dopzamok, kluch, pred, phone, krisha, lesnica, pon, podjezd, text, editor, region, new)
 			VALUES (
 			'$adress',
 			'$vihod1',
@@ -74,6 +74,7 @@ $prim = $_GET['text'];
 			'$vihod3',
 			'$vihod4',
 			'$vihod5',
+			'$oboryda',
 			'$dopzamok',
 			'$kluch',
 			'$pred',

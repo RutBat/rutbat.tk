@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "inc/head.php";
-$adress = trim($_GET['adress']);
+$adress = trim(htmlentities($_GET['adress']));
 ?>
 <head><title>Информация о доме <?=$adress?></title></head>
 <?

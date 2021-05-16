@@ -3,9 +3,6 @@ include "inc/head.php";
 ?>
 <head><title>Админ панель</title></head>
 <?
-
-
-echo"$_GET[check]";
 echo'<form method="GET" action="#">';
 echo'<li class="list-group-item  justify-content-between align-items-center">';
 	////////////////////////////РЕГИОН////////////////////////////////////////////////

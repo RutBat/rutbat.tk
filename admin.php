@@ -3,35 +3,35 @@ include "inc/head.php";
 ?>
 <head><title>Добавить дом</title></head>
 <?
-if(isset($_GET['adress']) &&  isset($_GET['region'])){
+if(htmlentities(isset($_GET['adress'])) &&  htmlentities(isset($_GET['region']))){
 session_start();
-$_SESSION['adress'] = trim($_GET['adress']);
-$_SESSION['region'] = $_GET['region'];
-$_SESSION['step'] = $_GET['step'];
+$_SESSION['adress'] = trim(htmlentities($_GET['adress']));
+$_SESSION['region'] = htmlentities($_GET['region']);
+$_SESSION['step'] = htmlentities($_GET['step']);
 }
-if(isset($_GET['oboryda']) &&  isset($_GET['pon'])){
+if(htmlentities(isset($_GET['oboryda'])) &&  htmlentities(isset($_GET['pon']))){
 session_start();
-$_SESSION['oboryda'] = $_GET['oboryda'];
-$_SESSION['pon'] = $_GET['pon'];
-$_SESSION['step'] = $_GET['step'];
+$_SESSION['oboryda'] = htmlentities($_GET['oboryda']);
+$_SESSION['pon'] = htmlentities($_GET['pon']);
+$_SESSION['step'] = htmlentities($_GET['step']);
 }
 if($_GET['step'] == 3){
 session_start();
-if(!empty($_GET['lesnica'])){$_SESSION['lesnica'] = $_GET['lesnica'];}
-if(!empty($_GET['podjezd'])){$_SESSION['podjezd'] = $_GET['podjezd'];}
-if(!empty($_GET['dopzamok'])){$_SESSION['dopzamok'] = $_GET['dopzamok'];}
-if(!empty($_GET['vihod'])){$_SESSION['vihod'] = $_GET['vihod'];}
-if(!empty($_GET['krisha'])){$_SESSION['krisha'] = $_GET['krisha'];}
-if(!empty($_GET['klych'])){$_SESSION['klych'] = $_GET['klych'];}
-if(!empty($_GET['podjezd'])){$_SESSION['podjezd'] = $_GET['podjezd'];}
-$_SESSION['step'] = $_GET['step'];
+if(!empty($_GET['lesnica'])){$_SESSION['lesnica'] = htmlentities($_GET['lesnica']);}
+if(!empty($_GET['podjezd'])){$_SESSION['podjezd'] = htmlentities($_GET['podjezd']);}
+if(!empty($_GET['dopzamok'])){$_SESSION['dopzamok'] = htmlentities($_GET['dopzamok']);}
+if(!empty($_GET['vihod'])){$_SESSION['vihod'] = htmlentities($_GET['vihod']);}
+if(!empty($_GET['krisha'])){$_SESSION['krisha'] = htmlentities($_GET['krisha']);}
+if(!empty($_GET['klych'])){$_SESSION['klych'] = htmlentities($_GET['klych']);}
+if(!empty($_GET['podjezd'])){$_SESSION['podjezd'] = htmlentities($_GET['podjezd']);}
+$_SESSION['step'] = htmlentities($_GET['step']);
 }
 if($_GET['step'] == "final"){
 session_start();
-$_SESSION['step'] = $_GET['step'];
-if(!empty($_GET['pred'])){$_SESSION['pred'] = $_GET['pred'];}
-if(!empty($_GET['phone'])){$_SESSION['phone'] = $_GET['phone'];}
-if(!empty($_GET['text'])){$_SESSION['text'] = $_GET['text'];}
+$_SESSION['step'] = htmlentities($_GET['step']);
+if(!empty($_GET['pred'])){$_SESSION['pred'] = htmlentities($_GET['pred']);}
+if(!empty($_GET['phone'])){$_SESSION['phone'] = htmlentities($_GET['phone']);}
+if(!empty($_GET['text'])){$_SESSION['text'] = htmlentities($_GET['text']);}
 $adress = $_SESSION['adress'];
 $vihod1 = $_SESSION['vihod']['0'];
 $vihod2 = $_SESSION['vihod']['1'];
