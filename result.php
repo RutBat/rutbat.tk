@@ -369,7 +369,7 @@ if ($row->oboryda == "Фасад") {
 		}
 		if ($usr['admin'] == '1')
 		{
-		out_sel("region", "$adress", "<font color = 'red'>Регион</font>");
+		out_sel("region", "$adress", "Регион");
 		}
 		else
 		{

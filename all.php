@@ -75,7 +75,7 @@ $text = $row['new'] == 1 ? 'NEW' : '';
 <script type="text/javascript">
 function startdel(i) {
 if(confirm("Точно удалить дом из базы?")) {
-parent.location = 'del.php?id=' + i;
+parent.location = 'del.php?adress=<?=$_GET[adress]?>&id=' + i;
 }
 }
 </script>

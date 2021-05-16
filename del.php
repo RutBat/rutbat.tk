@@ -1,6 +1,12 @@
 <?php
 include "inc/head.php";
 $id = e($_GET['id']);
+$adress = e($_GET['adress']);
+if(empty($adress)){
+	$value = '&id=ok';
+}else{
+	$value = '?id=ok';
+}
 $date = date("d.m.Y H:i:s");
 $user = $usr['name'];
 $region = $usr['region'];
@@ -19,7 +25,8 @@ $sql = " DELETE FROM adress WHERE id = '$id'";
 if (mysqli_query($connect, $sql)) { ?>
 <?php
 $whereareyoufrom = $_SERVER['HTTP_REFERER'];
-red_index("$whereareyoufrom&id=ok");
+red_index("all?id=ok");
+exit;
 echo '<br><br><br>';
 } else {echo "Error deleting record: " . mysqli_error($connect);}
 mysqli_close($connect);

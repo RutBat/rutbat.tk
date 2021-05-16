@@ -10,10 +10,10 @@ header('Location: /');
 exit();
 }
 include "inc/db.php";
-$login  = trim(htmlspecialchars($_GET['login']));
-$pass   = trim(htmlspecialchars($_GET['pass']));
+$login  = trim(htmlspecialchars(htmlentities($_GET['login'])));
+$pass   = trim(htmlspecialchars(htmlentities($_GET['pass'])));
 $pass_256 = hash('sha256', $pass); // Хэш по алгоритму sha256
-$region = $_GET['region'];
+$region = htmlspecialchars(htmlentities($_GET['region']));
 if (empty($login)) {
 echo '<script>alert("Ошибка! Проверьте логин. Не используйте пробелы и спец символы.");</script>';
 echo '<meta http-equiv="refresh" content="0;URL=/auth.php?reg">';

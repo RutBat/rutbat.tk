@@ -1,7 +1,7 @@
 <?php
 include 'inc/db.php';
-$log = trim(htmlspecialchars($_POST['login']));
-$pass = trim(htmlspecialchars($_POST['pass']));
+$log = trim(htmlspecialchars(htmlentities($_POST['login'])));
+$pass = trim(htmlspecialchars(htmlentities($_POST['pass'])));
 //////////////////ВЫХОД ИЗ СИСТЕМЫ//////////
 ////////////////////////если авторизация верна то пишем куки, если нет на стр. ошибок///////
 if (!empty($log) && !empty($pass)) {

@@ -5,7 +5,27 @@ include "inc/head.php";
 <?
 if(htmlentities(isset($_GET['adress'])) &&  htmlentities(isset($_GET['region']))){
 session_start();
+
+
 $_SESSION['adress'] = trim(htmlentities($_GET['adress']));
+
+
+$pattern = '/^[а-яё0-9 ]{3,25}+$/iu';
+$var = $_SESSION['adress'];
+if (!preg_match($pattern, $var)) {
+ ?>
+<script type="text/javascript">
+	alert('Произошла ошибка. Адрес либо слишком длинный, либо указан некоректно.')
+</script>
+ <?
+ session_start();
+$_SESSION['adress'] = '';
+$_SESSION['region'] = '';
+redirect('admin');
+ exit;
+} 
+
+
 $_SESSION['region'] = htmlentities($_GET['region']);
 $_SESSION['step'] = htmlentities($_GET['step']);
 }

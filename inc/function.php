@@ -40,7 +40,7 @@ echo'<meta http-equiv="refresh" content="0;URL='."$url".'">';
 }
 function redir ($url,$tim) {
 $url = htmlentities($url);
-$url = htmlentities($tim);
+$tim = htmlentities($tim);
 ?>
 <meta http-equiv="refresh" content="<?=$tim?>;URL=<?=$url?>">
 <?php
@@ -105,11 +105,12 @@ global $connect;
 $val1 = htmlentities($val1);
 $val2 = htmlentities($val2);
 $val3 = htmlentities($val3);
+$color = $val3 == "Регион" ? "text-danger" : "text-muted";
 $results = $connect->query("SELECT * FROM adress WHERE adress LIKE '$val2' ");
 
 while ($row = $results->fetch_object()) {
 
-echo"<small  class='form-text text-muted'>$val3</small><select name='$val1' class='custom-select mr-sm-2'>";
+echo"<small  class='form-text $color'>$val3</small><select name='$val1' class='custom-select mr-sm-2'>";
 	$krish = $connect->query("SELECT * FROM $val1");
 	while ($krisha = $krish->fetch_object()) {
 	if ($row->$val1 == $krisha->name) {

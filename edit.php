@@ -5,7 +5,7 @@ $adress = htmlentities($_GET['adress'],  ENT_QUOTES,  "utf-8");
 $results = $connect->query("SELECT * FROM adress WHERE adress LIKE '$adress' LIMIT 1");
 $this_house =  $results->num_rows == 1 ? $results->fetch_array(MYSQLI_ASSOC) : '';
 /////////Если данных нет то осталяем без изменений, если есть добавляем их в переменную
-$complete = empty(htmlentities($_GET['check'],  ENT_QUOTES,  "utf-8")) ? 0 : $_GET['check'],  ENT_QUOTES,  "utf-8");
+$complete = empty(htmlentities($_GET['check'],  ENT_QUOTES,  "utf-8")) ? 0 : htmlentities($_GET['check'],  ENT_QUOTES,  "utf-8");
 $dopzamok =  empty(htmlentities($_GET['dopzamok'],  ENT_QUOTES,  "utf-8")) ? $this_house['dopzamok'] : htmlentities($_GET['dopzamok'],  ENT_QUOTES,  "utf-8");
 $vihod1 =  empty(htmlentities($_GET['vihod']['0'],  ENT_QUOTES,  "utf-8")) ? $this_house['vihod'] : htmlentities($_GET['vihod']['0'],  ENT_QUOTES,  "utf-8");
 $vihod2 =  empty(htmlentities($_GET['vihod']['1'],  ENT_QUOTES,  "utf-8")) ? $this_house['vihod2'] : htmlentities($_GET['vihod']['1'],  ENT_QUOTES,  "utf-8");
