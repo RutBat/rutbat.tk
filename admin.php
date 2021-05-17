@@ -40,7 +40,7 @@ session_start();
 if(!empty($_GET['lesnica'])){$_SESSION['lesnica'] = htmlentities($_GET['lesnica']);}
 if(!empty($_GET['podjezd'])){$_SESSION['podjezd'] = htmlentities($_GET['podjezd']);}
 if(!empty($_GET['dopzamok'])){$_SESSION['dopzamok'] = htmlentities($_GET['dopzamok']);}
-if(!empty($_GET['vihod'])){$_SESSION['vihod'] = htmlentities($_GET['vihod']);}
+if(!empty($_GET['vihod'])){$_SESSION['vihod'] = $_GET['vihod'];}
 if(!empty($_GET['krisha'])){$_SESSION['krisha'] = htmlentities($_GET['krisha']);}
 if(!empty($_GET['klych'])){$_SESSION['klych'] = htmlentities($_GET['klych']);}
 if(!empty($_GET['podjezd'])){$_SESSION['podjezd'] = htmlentities($_GET['podjezd']);}
