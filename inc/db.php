@@ -7,21 +7,20 @@
 
 
 
-define ("HOST", "127.0.0.1");
-define ("USER", "root");
-define ("BAZA", "ard");
-define ("PASS", "");
+define("HOST", "127.0.0.1");
+define("USER", "root");
+define("BAZA", "ard");
+define("PASS", "");
 global $connect;
-$connect = new mysqli(HOST, USER, PASS, BAZA );
+$connect = new mysqli(HOST, USER, PASS, BAZA);
 $connect->query("SET NAMES 'utf8' ");
 
-function uved($text,$why,$tim)
+function uved($text, $why, $tim)
 {
 
 
 
-?><style>
-	
+    ?><style>
 .toast {
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
@@ -35,21 +34,18 @@ function uved($text,$why,$tim)
     border-radius: revert;
 }
 </style>
+<link rel="manifest" href="manifest.json">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-<div class="toast" role="alert" data-delay="<?=$tim?>000" data-autohide="true">
+<div class="toast" role="alert" data-delay="<?= $tim ?>000" data-autohide="true">
 
- <div class=" alert alert-<?=$why?>">
-<?=$text?>
- </div> 
+    <div class=" alert alert-<?= $why ?>">
+        <?= $text ?>
+    </div>
 </div>
 
- <script>
+<script>
 $('.toast').toast('show');
-</script><?php	
+</script>
+<?php
 }
-
-
-
-
-
 ?>

@@ -12,9 +12,6 @@
 </div>
 </div>
 </main>
-<script>
-$('.toast').toast('show');
-</script>
 <script type="text/javascript">
 	$(window).on('load', function () {
 		var $preloader = $('#p_prldr'),
@@ -34,11 +31,10 @@ $('.toast').toast('show');
 .alertm_but {    display: inline-block;    font-weight: 400;    line-height: 1.25;    text-align: center;    white-space: nowrap;    vertical-align: middle;    -webkit-user-select: none;    -moz-user-select: none;    -ms-user-select: none;    user-select: none;    border: 1px solid transparent;    padding: .5rem 2rem;    font-size: 1rem;    border-radius: .25rem;    -webkit-transition: all .2s ease-in-out;    -o-transition: all .2s ease-in-out;    transition: all .2s ease-in-out;    color: #fff;    background-color: #0275d8;    border-color: #0275d8;    display: block;    margin-top: 25px;    cursor: pointer;}
 .alertm_but:hover {    color: #fff;    background-color: #025aa5;    border-color: #01549b;}
 a.alertm_close {    color: red;    text-decoration: none;    position: absolute;    right: 7px;    top: 0px;    font-size: 25px;}
-</style>  <script src="js/util.js"></script>
-  <script src="js/jquery-3.5.1.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" ></script>
-<script src="js/bootstrap-formhelpers-phone.js"></script>
+</style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="js/bootstrap-formhelpers-phone.js"></script>
 	</body>
 	</html>

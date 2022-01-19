@@ -89,4 +89,4 @@ php_value session.gc_maxlifetime 1080000
 php_value session.cookie_lifetime 1080000
 php_value magic_quotes_gpc on
 
-ErrorDocument 404 /404.html
+ErrorDocument 404 /error.php

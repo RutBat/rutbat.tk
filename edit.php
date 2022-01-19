@@ -1,32 +1,33 @@
 <?php
-include "inc/head.php";
-$id = htmlentities($_GET['id'],  ENT_QUOTES,  "utf-8");
-$adress = htmlentities($_GET['adress'],  ENT_QUOTES,  "utf-8");
+include "inc/function.php";
+AutorizeProtect();
+$id = h($_GET['id']);
+$adress = h($_GET['adress']);
 $results = $connect->query("SELECT * FROM adress WHERE adress LIKE '$adress' LIMIT 1");
 $this_house =  $results->num_rows == 1 ? $results->fetch_array(MYSQLI_ASSOC) : '';
 /////////Если данных нет то осталяем без изменений, если есть добавляем их в переменную
-$complete = empty(htmlentities($_GET['check'],  ENT_QUOTES,  "utf-8")) ? 0 : htmlentities($_GET['check'],  ENT_QUOTES,  "utf-8");
-$dopzamok =  empty(htmlentities($_GET['dopzamok'],  ENT_QUOTES,  "utf-8")) ? $this_house['dopzamok'] : htmlentities($_GET['dopzamok'],  ENT_QUOTES,  "utf-8");
-$vihod1 =  empty(htmlentities($_GET['vihod']['0'],  ENT_QUOTES,  "utf-8")) ? $this_house['vihod'] : htmlentities($_GET['vihod']['0'],  ENT_QUOTES,  "utf-8");
-$vihod2 =  empty(htmlentities($_GET['vihod']['1'],  ENT_QUOTES,  "utf-8")) ? $this_house['vihod2'] : htmlentities($_GET['vihod']['1'],  ENT_QUOTES,  "utf-8");
-$vihod3 =  empty(htmlentities($_GET['vihod']['2'],  ENT_QUOTES,  "utf-8")) ? $this_house['vihod3'] : htmlentities($_GET['vihod']['2'],  ENT_QUOTES,  "utf-8");
-$vihod4 =  empty(htmlentities($_GET['vihod']['3'],  ENT_QUOTES,  "utf-8")) ? $this_house['vihod4'] : htmlentities($_GET['vihod']['3'],  ENT_QUOTES,  "utf-8");
-$vihod5 =  empty(htmlentities($_GET['vihod']['4'],  ENT_QUOTES,  "utf-8")) ? $this_house['vihod5'] : htmlentities($_GET['vihod']['4'],  ENT_QUOTES,  "utf-8");
-$kluch =  empty(htmlentities($_GET['kluch'],  ENT_QUOTES,  "utf-8")) ? $this_house['kluch'] : htmlentities($_GET['kluch'],  ENT_QUOTES,  "utf-8");
-$krisha =  empty(htmlentities($_GET['krisha'],  ENT_QUOTES,  "utf-8")) ? $this_house['krisha'] : htmlentities($_GET['krisha'],  ENT_QUOTES,  "utf-8");
-$podjezd =  empty(htmlentities($_GET['podjezd'],  ENT_QUOTES,  "utf-8")) ? $this_house['podjezd'] : htmlentities($_GET['podjezd'],  ENT_QUOTES,  "utf-8");
-$pon =  empty(htmlentities($_GET['pon'],  ENT_QUOTES,  "utf-8")) ? $this_house['pon'] : htmlentities($_GET['pon'],  ENT_QUOTES,  "utf-8");
-$oboryda =  empty(htmlentities($_GET['oboryda'],  ENT_QUOTES,  "utf-8")) ? $this_house['oboryda'] : htmlentities($_GET['oboryda'],  ENT_QUOTES,  "utf-8");
-$lesnica =  empty(htmlentities($_GET['lesnica'],  ENT_QUOTES,  "utf-8")) ? $this_house['lesnica'] : htmlentities($_GET['lesnica'],  ENT_QUOTES,  "utf-8");
-$pred =  empty(htmlentities($_GET['pred'],  ENT_QUOTES,  "utf-8")) ? $this_house['pred'] : htmlentities($_GET['pred'],  ENT_QUOTES,  "utf-8");
-$phone =  empty(htmlentities($_GET['phone'],  ENT_QUOTES,  "utf-8")) ? $this_house['phone'] : htmlentities($_GET['phone'],  ENT_QUOTES,  "utf-8");
-$region =  empty(htmlentities($_GET['region'],  ENT_QUOTES,  "utf-8")) ? $this_house['region'] : htmlentities($_GET['region'],  ENT_QUOTES,  "utf-8");
-$text =  empty(htmlentities($_GET['text'],  ENT_QUOTES,  "utf-8")) ? $this_house['text'] : htmlentities($_GET['text'],  ENT_QUOTES,  "utf-8");
+$complete = empty(h($_GET['check'])) ? 0 : h($_GET['check']);
+$dopzamok =  empty(h($_GET['dopzamok'])) ? $this_house['dopzamok'] : h($_GET['dopzamok']);
+$vihod1 =  empty(h($_GET['vihod']['0'])) ? $this_house['vihod'] : h($_GET['vihod']['0']);
+$vihod2 =  empty(h($_GET['vihod']['1'])) ? $this_house['vihod2'] : h($_GET['vihod']['1']);
+$vihod3 =  empty(h($_GET['vihod']['2'])) ? $this_house['vihod3'] : h($_GET['vihod']['2']);
+$vihod4 =  empty(h($_GET['vihod']['3'])) ? $this_house['vihod4'] : h($_GET['vihod']['3']);
+$vihod5 =  empty(h($_GET['vihod']['4'])) ? $this_house['vihod5'] : h($_GET['vihod']['4']);
+$kluch =  empty(h($_GET['kluch'])) ? $this_house['kluch'] : h($_GET['kluch']);
+$krisha =  empty(h($_GET['krisha'])) ? $this_house['krisha'] : h($_GET['krisha']);
+$podjezd =  empty(h($_GET['podjezd'])) ? $this_house['podjezd'] : h($_GET['podjezd']);
+$pon =  empty(h($_GET['pon'])) ? $this_house['pon'] : h($_GET['pon']);
+$oboryda =  empty(h($_GET['oboryda'])) ? $this_house['oboryda'] : h($_GET['oboryda']);
+$lesnica =  empty(h($_GET['lesnica'])) ? $this_house['lesnica'] : h($_GET['lesnica']);
+$pred =  empty(h($_GET['pred'])) ? $this_house['pred'] : h($_GET['pred']);
+$phone =  empty(h($_GET['phone'])) ? $this_house['phone'] : h($_GET['phone']);
+$region =  empty(h($_GET['region'])) ? $this_house['region'] : h($_GET['region']);
+$text =  empty(h($_GET['text'])) ? $this_house['text'] : h($_GET['text']);
 //////////////////////////////////////////////////////////////////////////////////////////////
 $new = 0;
 if (empty($adress)) {
-echo 'Введите адрес дома';
-exit();
+    echo 'Введите адрес дома';
+    exit();
 }
 $user = $usr['name'];
 $date = date("d.m.Y H:i:s");
@@ -38,7 +39,8 @@ VALUES (
 '$log'
 )";
 if ($connect->query($zap) === false) {
-	echo "Ошибка: " . $zap . "<br>" . $connect->error;	}
+    echo "Ошибка: " . $zap . "<br>" . $connect->error;
+}
 $sql = "UPDATE adress SET
 adress = '$adress',
 vihod = '$vihod1',
@@ -62,8 +64,9 @@ new = '$new',
 complete = '$complete'
 WHERE id = '$id'";
 if ($connect->query($sql) === true) {
-redirect("/result.php?adress=$adress");
+    red_index("/result.php?adress=$adress&success");
+    exit;
 } else {
-echo "Ошибка: " . $sql . "<br>" . $connect->error;
+    echo "Ошибка: " . $sql . "<br>" . $connect->error;
 }
 include 'inc/foot.php';
